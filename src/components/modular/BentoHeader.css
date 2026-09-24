@@ -154,7 +154,7 @@
 
   .bento-header-inner {
     height: 48px;
-    padding: 0 0.6rem;
+    padding: 0 0.75rem;
   }
 
   .bento-brand {
@@ -163,40 +163,36 @@
   }
 
   .bento-logo {
-    height: 22px;
+    height: 24px;
+  }
+
+  .portal-reset-btn,
+  .icon-action-btn {
+    display: none; /* Clean mobile header: hide sound toggle & portal button */
   }
 
   .bento-header-actions {
-    gap: 0.35rem;
-  }
-
-  .icon-action-btn, .portal-reset-btn {
-    padding: 0.35rem 0.55rem;
-    font-size: 0.7rem;
+    gap: 0.5rem;
   }
 
   .header-contact-btn {
-    padding: 0.4rem 0.75rem;
-    font-size: 0.7rem;
-    letter-spacing: 0.02em;
+    padding: 0.45rem 0.95rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
   }
 }
 
 @media (max-width: 420px) {
   .bento-header-inner {
-    padding: 0 0.5rem;
+    padding: 0 0.6rem;
   }
 
   .bento-brand-badge {
     display: none;
   }
 
-  .bento-header-actions {
-    gap: 0.25rem;
-  }
-
   .header-contact-btn {
-    padding: 0.35rem 0.6rem;
-    font-size: 0.675rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
   }
 }
