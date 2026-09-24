@@ -149,12 +149,16 @@
 @media (max-width: 640px) {
   .bento-header {
     top: 0.6rem;
-    padding: 0 0.5rem;
+    padding: 0 0.85rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .bento-header-inner {
     height: 48px;
     padding: 0 0.75rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .bento-brand {
@@ -183,6 +187,10 @@
 }
 
 @media (max-width: 420px) {
+  .bento-header {
+    padding: 0 0.65rem;
+  }
+
   .bento-header-inner {
     padding: 0 0.6rem;
   }
@@ -196,7 +204,7 @@
   }
 
   .header-contact-btn {
-    padding: 0.4rem 0.8rem;
+    padding: 0.4rem 0.75rem;
     font-size: 0.7rem;
   }
 }
