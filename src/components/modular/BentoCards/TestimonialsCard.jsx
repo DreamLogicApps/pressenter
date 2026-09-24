@@ -37,6 +37,15 @@ export default function TestimonialsCard() {
     setCurrent((prevIdx) => (prevIdx === testimonials.length - 1 ? 0 : prevIdx + 1));
   };
 
+  const handleDragEnd = (e, info) => {
+    const swipeThreshold = 35;
+    if (info.offset.x < -swipeThreshold) {
+      next();
+    } else if (info.offset.x > swipeThreshold) {
+      prev();
+    }
+  };
+
   return (
     <div className="bento-card bento-testimonials">
       <div className="card-top-tag">
@@ -44,13 +53,21 @@ export default function TestimonialsCard() {
         <span>CLIENT IMPACT & TESTIMONIALS</span>
       </div>
 
-      <div className="testimonial-body">
+      <motion.div 
+        className="testimonial-body swipeable-area"
+        drag="x"
+        dragConstraints={{ left: 0, right: 0 }}
+        dragElastic={0.2}
+        onDragEnd={handleDragEnd}
+        style={{ touchAction: 'pan-y', cursor: 'grab' }}
+        whileTap={{ cursor: 'grabbing' }}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.35 }}
             className="testimonial-panel"
           >
@@ -73,7 +90,7 @@ export default function TestimonialsCard() {
             </div>
           </motion.div>
         </AnimatePresence>
-      </div>
+      </motion.div>
 
       <div className="testimonial-controls">
         <div className="testimonial-dots">

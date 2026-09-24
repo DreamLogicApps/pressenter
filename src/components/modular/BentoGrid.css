@@ -248,6 +248,34 @@
   color: #8e8e93;
 }
 
+.portfolio-controls-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.swipeable-area {
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+}
+
+.swipe-hint-pill {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  padding: 0.2rem 0.55rem;
+  background: rgba(6, 6, 8, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #a1a1aa;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
 .project-dots {
   display: flex;
   gap: 0.4rem;
