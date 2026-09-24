@@ -266,26 +266,99 @@
 }
 
 @media (max-width: 768px) {
+  .showcase-modal-backdrop {
+    padding: 0.75rem;
+  }
+
   .showcase-modal-container {
-    padding: 1.25rem;
+    padding: 1.25rem 1rem;
     gap: 1rem;
     border-radius: 20px;
+    max-height: 94vh;
+  }
+
+  .showcase-close-btn {
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+  }
+
+  .modal-nav-group {
+    margin-right: 2.25rem;
+    gap: 0.4rem;
+  }
+
+  .showcase-nav-arrow {
+    width: 28px;
+    height: 28px;
   }
 
   .showcase-modal-grid {
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 1rem;
   }
 
   .showcase-hero-img-box {
-    height: 200px;
+    height: 190px;
   }
 
   .showcase-title {
     font-size: 1.35rem;
   }
 
+  .showcase-subtitle {
+    font-size: 0.8rem;
+  }
+
   .deliverables-chips-grid {
     grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .deliverable-chip {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.725rem;
+  }
+
+  .showcase-cta-primary {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem 1rem;
+    font-size: 0.825rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .showcase-modal-backdrop {
+    padding: 0.4rem;
+  }
+
+  .showcase-modal-container {
+    padding: 1rem 0.75rem;
+    border-radius: 16px;
+  }
+
+  .modal-tag-badge {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.65rem;
+  }
+
+  .showcase-hero-img-box {
+    height: 170px;
+  }
+
+  .showcase-stat-pill {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
+  }
+
+  .showcase-title {
+    font-size: 1.2rem;
+  }
+
+  .showcase-desc {
+    font-size: 0.8rem;
+    line-height: 1.5;
   }
 }

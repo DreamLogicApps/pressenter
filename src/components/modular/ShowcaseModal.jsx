@@ -57,6 +57,15 @@ export default function ShowcaseModal({ isOpen, onClose, projectIndex, projects,
     }
   };
 
+  const handleMediaDragEnd = (e, info) => {
+    const swipeThreshold = 35;
+    if (info.offset.x < -swipeThreshold) {
+      handleNext();
+    } else if (info.offset.x > swipeThreshold) {
+      handlePrev();
+    }
+  };
+
   return (
     <AnimatePresence>
       <div className="showcase-modal-backdrop" onClick={handleClose}>
@@ -81,8 +90,8 @@ export default function ShowcaseModal({ isOpen, onClose, projectIndex, projects,
           {/* Modal Header */}
           <div className="showcase-modal-header">
             <div className="modal-tag-badge">
-              <Sparkles size={13} className="gold-text" />
-              <span>SHOWCASE CASE STUDY</span>
+              <Sparkles size={12} className="gold-text" />
+              <span>CASE STUDY</span>
             </div>
             <div className="modal-nav-group">
               <button 
@@ -91,16 +100,16 @@ export default function ShowcaseModal({ isOpen, onClose, projectIndex, projects,
                 onMouseEnter={() => audioManager.playHover()}
                 title="Previous Case Study"
               >
-                <ChevronLeft size={18} />
+                <ChevronLeft size={16} />
               </button>
-              <span className="modal-counter">{projectIndex + 1} / {projects.length}</span>
+              <span className="modal-counter">{projectIndex + 1}/{projects.length}</span>
               <button 
                 className="showcase-nav-arrow" 
                 onClick={handleNext}
                 onMouseEnter={() => audioManager.playHover()}
                 title="Next Case Study"
               >
-                <ChevronRight size={18} />
+                <ChevronRight size={16} />
               </button>
             </div>
           </div>
@@ -109,7 +118,14 @@ export default function ShowcaseModal({ isOpen, onClose, projectIndex, projects,
           <div className="showcase-modal-grid">
             {/* Visual Media Column */}
             <div className="showcase-media-col">
-              <div className="showcase-hero-img-box">
+              <motion.div 
+                className="showcase-hero-img-box swipeable-area"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={handleMediaDragEnd}
+                style={{ touchAction: 'pan-y' }}
+              >
                 <img 
                   src={currentProject.image} 
                   alt={currentProject.title} 
@@ -117,7 +133,10 @@ export default function ShowcaseModal({ isOpen, onClose, projectIndex, projects,
                 />
                 <div className="showcase-hero-overlay" />
                 <div className="showcase-hero-tag">{currentProject.tag}</div>
-              </div>
+                <div className="swipe-hint-pill mobile-hint">
+                  <span>Swipe &larr; &rarr;</span>
+                </div>
+              </motion.div>
 
               {/* Impact Metrics Row */}
               {currentProject.stats && (
