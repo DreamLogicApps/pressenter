@@ -1308,9 +1308,77 @@
     height: 170px;
   }
 
-  .lab-controls-row {
-    flex-direction: column;
-    gap: 0.85rem;
+  /* Mobile Brand Lab Optimizations */
+  .lab-top-controls,
+  .lab-bottom-controls {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .lab-brand-input {
+    font-size: 16px; /* Prevents auto-zoom on mobile safari/chrome */
+    padding: 0.5rem 0.75rem;
+  }
+
+  .view-mode-pills,
+  .font-pills {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .view-mode-btn,
+  .font-pill-btn {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.7rem;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .color-swatches {
+    gap: 0.6rem;
+  }
+
+  .swatch-btn {
+    width: 28px;
+    height: 28px;
+  }
+
+  .lab-canvas-screen {
+    padding: 1rem 0.85rem;
+    min-height: 200px;
+    gap: 1rem;
+    border-radius: 14px;
+  }
+
+  .archetype-tagline-pill {
+    font-size: 0.55rem;
+    padding: 0.15rem 0.45rem;
+    max-width: 82%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .canvas-brand-name {
+    font-size: clamp(1.25rem, 5.5vw, 1.55rem);
+    letter-spacing: 0.03em;
+    word-break: break-word;
+  }
+
+  .canvas-sub-tagline {
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+  }
+
+  .canvas-action-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .app-frame {
+    max-width: 100%;
   }
 
   .workflow-steps-row {
