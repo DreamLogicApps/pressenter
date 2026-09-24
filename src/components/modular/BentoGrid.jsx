@@ -110,7 +110,7 @@ export default function BentoGrid({ onResetSplash }) {
             <div className="footer-brand-group">
               <img src="/logo.png" alt="PressEnter Studio" className="footer-logo" />
               <p className="footer-tagline">
-                One-Stop Brand Creation Studio. Identity, Web, Video, and Growth — All Under One Roof.
+                One-Stop Brand Creation Studio. Identity, Web, Apps, Video, and Growth — All Under One Roof.
               </p>
             </div>
 

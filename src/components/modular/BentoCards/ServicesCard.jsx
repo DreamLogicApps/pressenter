@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Palette, Globe, Video, TrendingUp, Layers, Check } from 'lucide-react';
+import { Palette, Globe, Smartphone, Video, TrendingUp, Layers, Check } from 'lucide-react';
 import { audioManager } from '../../../utils/audioManager';
 
 const categories = [
@@ -13,10 +13,17 @@ const categories = [
   },
   {
     id: 'digital',
-    title: 'Web & Digital',
+    title: 'Web Design',
     icon: Globe,
     tagline: 'High-converting interactive web experiences',
     items: ['Custom React / Next.js Development', 'UX/UI Product Design', 'Interactive Motion & Animations', 'Conversion Rate Optimization']
+  },
+  {
+    id: 'app',
+    title: 'App Development',
+    icon: Smartphone,
+    tagline: 'Native and cross-platform mobile app solutions',
+    items: ['iOS & Android App Development', 'React Native & Flutter Builds', 'Mobile UI/UX Product Design', 'App Store Publishing & Scaling']
   },
   {
     id: 'media',

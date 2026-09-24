@@ -5,6 +5,7 @@ import { audioManager } from '../../../utils/audioManager';
 const serviceOptions = [
   { id: 'identity', label: 'Brand Identity & Logo System', price: 3500 },
   { id: 'web', label: 'Custom Web Design & Engineering', price: 4500 },
+  { id: 'app', label: 'iOS & Android Mobile App Development', price: 5000 },
   { id: 'video', label: 'Video Production & Commercial Shoot', price: 3000 },
   { id: 'social', label: 'Social Media Management & Creatives', price: 2000 },
   { id: 'motion', label: '3D Motion Graphics & Animation', price: 1500 }
