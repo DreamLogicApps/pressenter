@@ -14,13 +14,24 @@
   position: relative;
   width: 100%;
   max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
   background: linear-gradient(135deg, #121316 0%, #090a0c 100%);
   border: 1px solid rgba(195, 146, 46, 0.3);
   border-radius: 24px;
-  padding: 2.5rem;
+  padding: 2.25rem 2.5rem;
   box-shadow: 
     0 25px 50px -12px rgba(0, 0, 0, 0.9),
     0 0 40px rgba(195, 146, 46, 0.2);
+}
+
+/* Custom Scrollbar for modal container */
+.modal-container::-webkit-scrollbar {
+  width: 5px;
+}
+.modal-container::-webkit-scrollbar-thumb {
+  background: rgba(195, 146, 46, 0.3);
+  border-radius: 999px;
 }
 
 .modal-close-btn {
@@ -38,6 +49,7 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
+  z-index: 10;
 }
 
 .modal-close-btn:hover {
@@ -71,7 +83,7 @@
 }
 
 .form-group label {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -82,13 +94,13 @@
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 0.8rem 1rem;
+  padding: 0.75rem 0.9rem;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   color: #ffffff;
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 16px; /* 16px prevents mobile browser auto-zoom */
   outline: none;
   transition: border-color 0.2s ease;
 }
@@ -111,12 +123,12 @@
   justify-content: center;
   gap: 0.6rem;
   margin-top: 0.5rem;
-  padding: 1rem;
+  padding: 0.9rem;
   background: linear-gradient(135deg, #fffbcc 0%, #C3922E 100%);
   border: none;
   border-radius: 12px;
   color: #060608;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 4px 20px rgba(195, 146, 46, 0.35);
@@ -154,4 +166,53 @@
 
 .modal-success-state p {
   color: #a1a1aa;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 640px) {
+  .modal-backdrop {
+    padding: 0.75rem;
+  }
+
+  .modal-container {
+    padding: 1.5rem 1.25rem;
+    border-radius: 20px;
+    max-height: 88vh;
+  }
+
+  .modal-close-btn {
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+  }
+
+  .modal-header h2 {
+    font-size: 1.35rem;
+  }
+
+  .modal-header p {
+    font-size: 0.825rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .modal-form {
+    gap: 0.9rem;
+  }
+
+  .form-group label {
+    font-size: 0.7rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.65rem 0.8rem;
+    font-size: 16px;
+  }
+
+  .modal-submit-btn {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
 }
