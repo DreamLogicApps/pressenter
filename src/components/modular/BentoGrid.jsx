@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import BentoHeader from './BentoHeader';
 import ContactModal from './ContactModal';
+import ShowcaseModal from './ShowcaseModal';
 
 import HeroCard from './BentoCards/HeroCard';
 import ServicesCard from './BentoCards/ServicesCard';
-import PortfolioCard from './BentoCards/PortfolioCard';
+import PortfolioCard, { showcaseProjects } from './BentoCards/PortfolioCard';
 import MetricsCard from './BentoCards/MetricsCard';
 import WorkflowCard from './BentoCards/WorkflowCard';
 import EstimatorCard from './BentoCards/EstimatorCard';
@@ -20,6 +21,7 @@ import './BentoGrid.css';
 
 export default function BentoGrid({ onResetSplash }) {
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [showcaseIndex, setShowcaseIndex] = useState(null);
 
   const scrollToServices = () => {
     audioManager.playClick();
@@ -58,7 +60,7 @@ export default function BentoGrid({ onResetSplash }) {
           </div>
 
           <div className="grid-span-5">
-            <PortfolioCard />
+            <PortfolioCard onOpenShowcase={(idx) => setShowcaseIndex(idx)} />
           </div>
 
           {/* Row 2: Studio Philosophy / About Us (6 cols) + Interactive Brand Lab (6 cols) */}
@@ -157,6 +159,16 @@ export default function BentoGrid({ onResetSplash }) {
       <ContactModal 
         isOpen={isContactOpen}
         onClose={() => setIsContactOpen(false)}
+      />
+
+      {/* Interactive Showcase Lightbox Modal */}
+      <ShowcaseModal 
+        isOpen={showcaseIndex !== null}
+        onClose={() => setShowcaseIndex(null)}
+        projectIndex={showcaseIndex !== null ? showcaseIndex : 0}
+        projects={showcaseProjects}
+        onNavigate={(newIdx) => setShowcaseIndex(newIdx)}
+        onOpenContact={() => setIsContactOpen(true)}
       />
     </motion.div>
   );
