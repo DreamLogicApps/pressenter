@@ -232,8 +232,8 @@
 
 .portfolio-info {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .project-title {
@@ -248,10 +248,11 @@
   color: #8e8e93;
 }
 
-.portfolio-controls-group {
+.portfolio-controls {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: space-between;
+  margin-top: 0.5rem;
 }
 
 .swipeable-area {

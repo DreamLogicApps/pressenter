@@ -90,38 +90,38 @@ export default function PortfolioCard() {
             <h3 className="project-title">{projects[activeProject].title}</h3>
             <p className="project-cat">{projects[activeProject].category}</p>
           </div>
+        </div>
 
-          <div className="portfolio-controls-group">
-            <div className="project-dots">
-              {projects.map((_, idx) => (
-                <button
-                  key={idx}
-                  className={`dot-btn ${idx === activeProject ? 'active' : ''}`}
-                  onClick={() => {
-                    audioManager.playToggle();
-                    setActiveProject(idx);
-                  }}
-                />
-              ))}
-            </div>
-            <div className="nav-arrow-btns">
-              <button 
-                className="t-arrow-btn" 
-                onClick={prevProject}
-                onMouseEnter={() => audioManager.playHover()}
-                title="Previous Project"
-              >
-                <ChevronLeft size={16} />
-              </button>
-              <button 
-                className="t-arrow-btn" 
-                onClick={nextProject}
-                onMouseEnter={() => audioManager.playHover()}
-                title="Next Project"
-              >
-                <ChevronRight size={16} />
-              </button>
-            </div>
+        <div className="portfolio-controls">
+          <div className="testimonial-dots">
+            {projects.map((_, idx) => (
+              <span
+                key={idx}
+                className={`t-dot ${idx === activeProject ? 'active' : ''}`}
+                onClick={() => {
+                  audioManager.playToggle();
+                  setActiveProject(idx);
+                }}
+              />
+            ))}
+          </div>
+          <div className="nav-arrow-btns">
+            <button 
+              className="t-arrow-btn" 
+              onClick={prevProject}
+              onMouseEnter={() => audioManager.playHover()}
+              title="Previous Project"
+            >
+              <ChevronLeft size={16} />
+            </button>
+            <button 
+              className="t-arrow-btn" 
+              onClick={nextProject}
+              onMouseEnter={() => audioManager.playHover()}
+              title="Next Project"
+            >
+              <ChevronRight size={16} />
+            </button>
           </div>
         </div>
       </div>
