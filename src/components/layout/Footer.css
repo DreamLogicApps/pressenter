@@ -88,8 +88,32 @@
   }
 }
 
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.footer-logo {
+  height: 40px;
+  width: auto;
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
+}
+
 @media (max-width: 768px) {
   .footer-top {
     padding-bottom: var(--space-8);
+  }
+
+  .footer-brand {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-logo {
+    margin: 0 auto;
   }
 }

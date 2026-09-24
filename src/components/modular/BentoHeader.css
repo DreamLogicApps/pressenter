@@ -163,7 +163,7 @@
   }
 
   .bento-logo {
-    height: 24px;
+    height: 18px;
   }
 
   .portal-reset-btn,
@@ -189,6 +189,10 @@
 
   .bento-brand-badge {
     display: none;
+  }
+
+  .bento-logo {
+    height: 17px;
   }
 
   .header-contact-btn {

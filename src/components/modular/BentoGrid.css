@@ -1035,6 +1035,12 @@
 
   .footer-brand-group {
     align-items: center;
+    text-align: center;
+  }
+
+  .footer-logo {
+    align-self: center;
+    margin: 0 auto;
   }
 
   .footer-actions-group {
