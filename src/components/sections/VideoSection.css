@@ -1,0 +1,21 @@
+.video-wrapper {
+  background-color: var(--color-charcoal);
+  will-change: transform;
+}
+
+.video-heading {
+  font-size: clamp(4rem, 12vw, 15rem);
+  line-height: 0.85;
+  font-weight: 700;
+  color: var(--color-offwhite);
+  letter-spacing: -0.04em;
+  mix-blend-mode: overlay; /* Creates a cool interaction with the video behind it */
+  text-shadow: 0 10px 40px rgba(0,0,0,0.5); /* Backup legibility */
+}
+
+@media (max-width: 768px) {
+  .video-section .container {
+    height: 60vh;
+    min-height: 400px;
+  }
+}

@@ -1,0 +1,56 @@
+.final-cta-section {
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.cta-bg {
+  background: radial-gradient(circle at bottom center, rgba(195, 146, 46, 0.15) 0%, var(--color-charcoal) 60%);
+}
+
+.magnetic-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  background-color: var(--color-accent);
+  color: var(--color-offwhite);
+  padding: 1.5rem 3rem;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.magnetic-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(100%);
+  transition: transform var(--transition-normal);
+  border-radius: var(--radius-full);
+}
+
+.magnetic-button:hover::before {
+  transform: translateY(0);
+}
+
+.magnetic-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(195, 146, 46, 0.3);
+}
+
+.btn-text, .btn-arrow {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.magnetic-button:hover .btn-arrow {
+  transform: translateX(10px);
+}

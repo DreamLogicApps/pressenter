@@ -1,0 +1,202 @@
+.bento-header {
+  position: fixed;
+  top: 1.25rem;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 0 1.5rem;
+  pointer-events: none;
+}
+
+.bento-header-inner {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 1320px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  background: linear-gradient(135deg, rgba(20, 22, 28, 0.65) 0%, rgba(10, 11, 14, 0.75) 100%);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.6), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 25px rgba(195, 146, 46, 0.12);
+}
+
+.bento-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  transition: opacity 0.2s ease;
+}
+
+.bento-brand:hover {
+  opacity: 0.85;
+}
+
+.bento-logo {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+
+.bento-brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.6rem;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: 9999px;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.badge-text {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #4ade80;
+}
+
+.header-center-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #a1a1aa;
+}
+
+.gold-icon {
+  color: #C3922E;
+}
+
+.bento-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.icon-action-btn, .portal-reset-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #d4d4d8;
+  padding: 0.5rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.icon-action-btn:hover, .portal-reset-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.header-contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, #fffbcc 0%, #C3922E 100%);
+  border: none;
+  color: #060608;
+  padding: 0.55rem 1.1rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(195, 146, 46, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.header-contact-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(195, 146, 46, 0.5);
+}
+
+@media (max-width: 768px) {
+  .header-center-pill, .reset-label {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .bento-header {
+    top: 0.6rem;
+    padding: 0 0.5rem;
+  }
+
+  .bento-header-inner {
+    height: 48px;
+    padding: 0 0.6rem;
+  }
+
+  .bento-brand {
+    gap: 0.4rem;
+    padding: 0.1rem;
+  }
+
+  .bento-logo {
+    height: 22px;
+  }
+
+  .bento-header-actions {
+    gap: 0.35rem;
+  }
+
+  .icon-action-btn, .portal-reset-btn {
+    padding: 0.35rem 0.55rem;
+    font-size: 0.7rem;
+  }
+
+  .header-contact-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.02em;
+  }
+}
+
+@media (max-width: 420px) {
+  .bento-header-inner {
+    padding: 0 0.5rem;
+  }
+
+  .bento-brand-badge {
+    display: none;
+  }
+
+  .bento-header-actions {
+    gap: 0.25rem;
+  }
+
+  .header-contact-btn {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.675rem;
+  }
+}
