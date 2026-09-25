@@ -26,7 +26,50 @@ export default function CinematicExperience({ onResetSplash }) {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [showcaseIndex, setShowcaseIndex] = useState(null);
   const [activePalette, setActivePalette] = useState(BRAND_PALETTES[0]);
-  const [activeTab, setActiveTab] = useState(0);
+
+  // FAQ Accordion State
+  const [openFaq, setOpenFaq] = useState(0);
+  const FAQS = [
+    { 
+      q: "What makes PressEnter different from traditional agencies?", 
+      a: "Traditional agencies delegate your project across fragmented teams, causing communication breakdowns and slow execution. PressEnter operates as a unified creation engine — identity, web, apps, video, and growth under one single studio director." 
+    },
+    { 
+      q: "How fast can we launch our complete brand ecosystem?", 
+      a: "Our core brand creation & web app sprints deliver production-ready assets in 2 to 3 weeks, executing up to 3x faster than traditional multi-agency pipelines." 
+    },
+    { 
+      q: "Do we get full commercial rights and source design files?", 
+      a: "Yes, 100%. Upon completion, you receive full commercial ownership and raw source files for all Figma mockups, 3D renders, video master exports, and codebase repositories." 
+    },
+    { 
+      q: "Can PressEnter handle custom Web & App Development?", 
+      a: "Absolutely. We specialize in high-performance Web Apps, React/Next.js platforms, mobile apps, and interactive spatial WebGL experiences engineered for maximum conversion." 
+    }
+  ];
+
+  // Testimonial State
+  const [testimonialIdx, setTestimonialIdx] = useState(0);
+  const TESTIMONIALS = [
+    {
+      quote: "PressEnter built our entire brand identity, web app, and promotional launch video in just 3 weeks. They are literally an unfair advantage.",
+      author: "Alex V.",
+      role: "CEO & Founder",
+      company: "Apex Spatial AI",
+    },
+    {
+      quote: "Working with a single team for identity, code, and motion design saved us over $40,000 in agency friction. The quality is unmatched.",
+      author: "Elena R.",
+      role: "Head of Product",
+      company: "Nova FinTech Platform",
+    },
+    {
+      quote: "The brand lab system they designed for us increased our conversion rates by 4.8x. Every detail feels futuristic and hyper-polished.",
+      author: "Marcus T.",
+      role: "Managing Director",
+      company: "Vanguard Mobility",
+    }
+  ];
 
   // Estimator State
   const [selectedServices, setSelectedServices] = useState([0, 1]);
@@ -64,6 +107,33 @@ export default function CinematicExperience({ onResetSplash }) {
     setMuted(nextMute);
     audioManager.setMuted(nextMute);
     if (!nextMute) audioManager.playClick();
+  };
+
+  const handleCardMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = ((y - centerY) / centerY) * -3.5;
+    const rotateY = ((x - centerX) / centerX) * 3.5;
+
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+  };
+
+  const handleCardMouseLeave = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
+  };
+
+  const scrollToId = (id) => {
+    audioManager.playClick();
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   // Scene 1 Parallax Transforms
@@ -118,6 +188,13 @@ export default function CinematicExperience({ onResetSplash }) {
               <span className="hud-status-dot" />
               <span>CORE ACTIVE</span>
             </div>
+          </div>
+
+          <div className="hud-nav-links">
+            <button onClick={() => scrollToId('scene-showcase')} className="nav-link">SHOWCASE</button>
+            <button onClick={() => scrollToId('scene-spatial-lab')} className="nav-link">BRAND LAB</button>
+            <button onClick={() => scrollToId('capabilities-section')} className="nav-link">PRICING</button>
+            <button onClick={() => scrollToId('scene-faq')} className="nav-link">FAQ</button>
           </div>
 
           <div className="hud-actions">
@@ -407,6 +484,11 @@ export default function CinematicExperience({ onResetSplash }) {
         </div>
       </section>
 
+      {/* Laser Scene Divider */}
+      <div className="scene-laser-divider">
+        <span className="divider-label">SCENE // 04 — CAPABILITIES & PRICING</span>
+      </div>
+
       {/* ===================================================================
           SCENE 5: CAPABILITIES & PACKAGE COST ESTIMATOR
           =================================================================== */}
@@ -431,6 +513,8 @@ export default function CinematicExperience({ onResetSplash }) {
                     className={`estimator-row ${isSelected ? 'selected' : ''}`}
                     onClick={() => toggleService(idx)}
                     onMouseEnter={() => audioManager.playHover()}
+                    onMouseMove={handleCardMouseMove}
+                    onMouseLeave={handleCardMouseLeave}
                   >
                     <div className="service-check-box">
                       {isSelected ? <Minus size={14} /> : <Plus size={14} />}
@@ -442,7 +526,7 @@ export default function CinematicExperience({ onResetSplash }) {
               })}
             </div>
 
-            <div className="estimator-summary-card">
+            <div className="estimator-summary-card" onMouseMove={handleCardMouseMove} onMouseLeave={handleCardMouseLeave}>
               <div className="summary-top">
                 <span className="summary-label">ESTIMATED INVESTMENT</span>
                 <div className="total-price-display">
@@ -468,6 +552,93 @@ export default function CinematicExperience({ onResetSplash }) {
                 <span>LOCK IN THIS SCOPE</span>
                 <ArrowRight size={18} />
               </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Laser Scene Divider */}
+      <div className="scene-laser-divider">
+        <span className="divider-label">SCENE // 05 — CLIENT IMPACT & FAQ</span>
+      </div>
+
+      {/* ===================================================================
+          SCENE 6: TESTIMONIALS & FAQ ACCORDION
+          =================================================================== */}
+      <section className="scene-faq-section" id="scene-faq">
+        <div className="faq-container">
+          
+          <div className="testimonials-box" onMouseMove={handleCardMouseMove} onMouseLeave={handleCardMouseLeave}>
+            <div className="scene-tag">
+              <Award size={14} className="gold-text" />
+              <span>CLIENT IMPACT & REVIEWS</span>
+            </div>
+            
+            <p className="testimonial-quote">"{TESTIMONIALS[testimonialIdx].quote}"</p>
+            
+            <div className="testimonial-meta">
+              <div>
+                <span className="test-author">{TESTIMONIALS[testimonialIdx].author}</span>
+                <span className="test-role">{TESTIMONIALS[testimonialIdx].role} — {TESTIMONIALS[testimonialIdx].company}</span>
+              </div>
+              <div className="testimonial-nav">
+                <button 
+                  onClick={() => {
+                    audioManager.playClick();
+                    setTestimonialIdx((prev) => (prev > 0 ? prev - 1 : TESTIMONIALS.length - 1));
+                  }}
+                  className="test-nav-btn"
+                >
+                  ←
+                </button>
+                <button 
+                  onClick={() => {
+                    audioManager.playClick();
+                    setTestimonialIdx((prev) => (prev + 1) % TESTIMONIALS.length);
+                  }}
+                  className="test-nav-btn"
+                >
+                  →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="faq-accordion-box">
+            <div className="scene-tag">
+              <ShieldCheck size={14} className="gold-text" />
+              <span>FREQUENTLY ASKED QUESTIONS</span>
+            </div>
+            
+            <div className="faq-list">
+              {FAQS.map((faq, i) => (
+                <div key={i} className="faq-item">
+                  <button 
+                    className="faq-question"
+                    onClick={() => {
+                      audioManager.playClick();
+                      setOpenFaq(openFaq === i ? -1 : i);
+                    }}
+                  >
+                    <span>{faq.q}</span>
+                    <span className="faq-icon">{openFaq === i ? '−' : '+'}</span>
+                  </button>
+                  <AnimatePresence>
+                    {openFaq === i && (
+                      <motion.div 
+                        className="faq-answer"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <p>{faq.a}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
             </div>
           </div>
 
