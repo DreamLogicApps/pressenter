@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 
 export default function ScrollProgress() {
   const { scrollYProgress } = useScroll();
@@ -9,7 +9,13 @@ export default function ScrollProgress() {
     restDelta: 0.001
   });
 
-  const percentProgress = useTransform(scrollYProgress, (latest) => Math.round(latest * 100));
+  const [percent, setPercent] = useState(0);
+
+  useEffect(() => {
+    return scrollYProgress.on('change', (latest) => {
+      setPercent(Math.round(latest * 100));
+    });
+  }, [scrollYProgress]);
 
   return (
     <>
@@ -36,7 +42,7 @@ export default function ScrollProgress() {
         className="scroll-percent-badge"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1 }}
+        transition={{ delay: 0.5 }}
         style={{
           position: 'fixed',
           bottom: '24px',
@@ -60,9 +66,9 @@ export default function ScrollProgress() {
       >
         <span className="pulse-dot-mini" style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: '#C3922E', boxShadow: '0 0 8px #C3922E' }} />
         <span>SCROLL</span>
-        <motion.span style={{ color: '#ffffff' }}>
-          {percentProgress}%
-        </motion.span>
+        <span style={{ color: '#ffffff' }}>
+          {percent}%
+        </span>
       </motion.div>
     </>
   );
