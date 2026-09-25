@@ -56,14 +56,13 @@ export default function BentoGrid({ onResetSplash }) {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 35, scale: 0.96 },
+    hidden: { opacity: 0, y: 25 },
     visible: (custom) => ({
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
-        duration: 0.65,
-        delay: custom * 0.08,
+        duration: 0.55,
+        delay: custom * 0.05,
         ease: [0.16, 1, 0.3, 1]
       }
     })
@@ -72,10 +71,10 @@ export default function BentoGrid({ onResetSplash }) {
   return (
     <motion.div 
       className="bento-wrapper"
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
     >
       {/* Scroll Progress Bar & Badge */}
       <ScrollProgress />
@@ -98,10 +97,9 @@ export default function BentoGrid({ onResetSplash }) {
           {/* Row 1: Hero Pitch Anchor (Full Width 12 Columns) */}
           <motion.div 
             className="grid-span-12"
-            custom={1}
+            custom={0}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            animate="visible"
             variants={cardVariants}
             onMouseMove={handleCardMouseMove}
             onMouseLeave={handleCardMouseLeave}
@@ -119,10 +117,10 @@ export default function BentoGrid({ onResetSplash }) {
           {/* Row 2: Featured Showcase & Interactive Brand Lab (Asymmetric Dual Feature: 7 cols + 5 cols) */}
           <motion.div 
             className="grid-span-7"
-            custom={2}
+            custom={1}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.01 }}
             variants={cardVariants}
             onMouseMove={handleCardMouseMove}
             onMouseLeave={handleCardMouseLeave}
@@ -132,10 +130,10 @@ export default function BentoGrid({ onResetSplash }) {
 
           <motion.div 
             className="grid-span-5"
-            custom={3}
+            custom={2}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.01 }}
             variants={cardVariants}
             onMouseMove={handleCardMouseMove}
             onMouseLeave={handleCardMouseLeave}
@@ -146,10 +144,10 @@ export default function BentoGrid({ onResetSplash }) {
           {/* Row 3: Studio Story & Capabilities Matrix (4 cols + 8 cols) */}
           <motion.div 
             className="grid-span-4"
-            custom={4}
+            custom={3}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.01 }}
             variants={cardVariants}
             onMouseMove={handleCardMouseMove}
             onMouseLeave={handleCardMouseLeave}
@@ -160,10 +158,10 @@ export default function BentoGrid({ onResetSplash }) {
           <motion.div 
             className="grid-span-8" 
             id="services-section"
-            custom={5}
+            custom={4}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.01 }}
             variants={cardVariants}
             onMouseMove={handleCardMouseMove}
             onMouseLeave={handleCardMouseLeave}
@@ -174,10 +172,10 @@ export default function BentoGrid({ onResetSplash }) {
           {/* Row 4: Live Metrics & Client Impact Testimonials (4 cols + 8 cols) */}
           <motion.div 
             className="grid-span-4"
-            custom={6}
+            custom={5}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.01 }}
             variants={cardVariants}
             onMouseMove={handleCardMouseMove}
             onMouseLeave={handleCardMouseLeave}
@@ -187,10 +185,10 @@ export default function BentoGrid({ onResetSplash }) {
 
           <motion.div 
             className="grid-span-8"
-            custom={7}
+            custom={6}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.01 }}
             variants={cardVariants}
             onMouseMove={handleCardMouseMove}
             onMouseLeave={handleCardMouseLeave}
@@ -201,10 +199,10 @@ export default function BentoGrid({ onResetSplash }) {
           {/* Row 5: Interactive Process & Estimator (6 cols + 6 cols) */}
           <motion.div 
             className="grid-span-6"
-            custom={8}
+            custom={7}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.01 }}
             variants={cardVariants}
             onMouseMove={handleCardMouseMove}
             onMouseLeave={handleCardMouseLeave}
@@ -214,10 +212,10 @@ export default function BentoGrid({ onResetSplash }) {
 
           <motion.div 
             className="grid-span-6"
-            custom={9}
+            custom={8}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.01 }}
             variants={cardVariants}
             onMouseMove={handleCardMouseMove}
             onMouseLeave={handleCardMouseLeave}
@@ -228,10 +226,10 @@ export default function BentoGrid({ onResetSplash }) {
           {/* Row 6: FAQ & Quick Contact Launch Banner (5 cols + 7 cols) */}
           <motion.div 
             className="grid-span-5"
-            custom={10}
+            custom={9}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.01 }}
             variants={cardVariants}
             onMouseMove={handleCardMouseMove}
             onMouseLeave={handleCardMouseLeave}
@@ -241,10 +239,10 @@ export default function BentoGrid({ onResetSplash }) {
 
           <motion.div 
             className="grid-span-7"
-            custom={11}
+            custom={10}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.01 }}
             variants={cardVariants}
             onMouseMove={handleCardMouseMove}
             onMouseLeave={handleCardMouseLeave}
