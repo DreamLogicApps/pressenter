@@ -31,6 +31,42 @@ export default function BentoGrid({ onResetSplash }) {
     }
   };
 
+  const handleCardMouseMove = (e) => {
+    const card = e.currentTarget.querySelector('.bento-card') || e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    // Subtle 3D Perspective Tilt
+    const rotateX = ((y - centerY) / centerY) * -3.5;
+    const rotateY = ((x - centerX) / centerX) * 3.5;
+
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
+  };
+
+  const handleCardMouseLeave = (e) => {
+    const card = e.currentTarget.querySelector('.bento-card') || e.currentTarget;
+    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 35, scale: 0.96 },
+    visible: (custom) => ({
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.65,
+        delay: custom * 0.08,
+        ease: [0.16, 1, 0.3, 1]
+      }
+    })
+  };
+
   return (
     <motion.div 
       className="bento-wrapper"
@@ -55,54 +91,154 @@ export default function BentoGrid({ onResetSplash }) {
         <div className="bento-grid-layout">
           
           {/* Row 1: Hero Pitch (7 cols) + Portfolio Showcase (5 cols) */}
-          <div className="grid-span-7">
+          <motion.div 
+            className="grid-span-7"
+            custom={1}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={cardVariants}
+            onMouseMove={handleCardMouseMove}
+            onMouseLeave={handleCardMouseLeave}
+          >
             <HeroCard onExploreServices={scrollToServices} />
-          </div>
+          </motion.div>
 
-          <div className="grid-span-5">
+          <motion.div 
+            className="grid-span-5"
+            custom={2}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={cardVariants}
+            onMouseMove={handleCardMouseMove}
+            onMouseLeave={handleCardMouseLeave}
+          >
             <PortfolioCard onOpenShowcase={(idx) => setShowcaseIndex(idx)} />
-          </div>
+          </motion.div>
 
           {/* Row 2: Studio Philosophy / About Us (6 cols) + Interactive Brand Lab (6 cols) */}
-          <div className="grid-span-6">
+          <motion.div 
+            className="grid-span-6"
+            custom={3}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={cardVariants}
+            onMouseMove={handleCardMouseMove}
+            onMouseLeave={handleCardMouseLeave}
+          >
             <AboutCard />
-          </div>
+          </motion.div>
 
-          <div className="grid-span-6">
+          <motion.div 
+            className="grid-span-6"
+            custom={4}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={cardVariants}
+            onMouseMove={handleCardMouseMove}
+            onMouseLeave={handleCardMouseLeave}
+          >
             <BrandLabCard />
-          </div>
+          </motion.div>
 
           {/* Row 3: Live Metrics (4 cols) + Modular Capabilities (8 cols) */}
-          <div className="grid-span-4">
+          <motion.div 
+            className="grid-span-4"
+            custom={5}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={cardVariants}
+            onMouseMove={handleCardMouseMove}
+            onMouseLeave={handleCardMouseLeave}
+          >
             <MetricsCard />
-          </div>
+          </motion.div>
 
-          <div className="grid-span-8" id="services-section">
+          <motion.div 
+            className="grid-span-8" 
+            id="services-section"
+            custom={6}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={cardVariants}
+            onMouseMove={handleCardMouseMove}
+            onMouseLeave={handleCardMouseLeave}
+          >
             <ServicesCard />
-          </div>
+          </motion.div>
 
           {/* Row 4: Workflow Timeline (6 cols) + Package Estimator (6 cols) */}
-          <div className="grid-span-6">
+          <motion.div 
+            className="grid-span-6"
+            custom={7}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={cardVariants}
+            onMouseMove={handleCardMouseMove}
+            onMouseLeave={handleCardMouseLeave}
+          >
             <WorkflowCard />
-          </div>
+          </motion.div>
 
-          <div className="grid-span-6">
+          <motion.div 
+            className="grid-span-6"
+            custom={8}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={cardVariants}
+            onMouseMove={handleCardMouseMove}
+            onMouseLeave={handleCardMouseLeave}
+          >
             <EstimatorCard onOpenContact={() => setIsContactOpen(true)} />
-          </div>
+          </motion.div>
 
           {/* Row 5: Client Impact Testimonials (7 cols) + FAQ Accordion (5 cols) */}
-          <div className="grid-span-7">
+          <motion.div 
+            className="grid-span-7"
+            custom={9}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={cardVariants}
+            onMouseMove={handleCardMouseMove}
+            onMouseLeave={handleCardMouseLeave}
+          >
             <TestimonialsCard />
-          </div>
+          </motion.div>
 
-          <div className="grid-span-5">
+          <motion.div 
+            className="grid-span-5"
+            custom={10}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={cardVariants}
+            onMouseMove={handleCardMouseMove}
+            onMouseLeave={handleCardMouseLeave}
+          >
             <FAQCard />
-          </div>
+          </motion.div>
 
           {/* Row 6: Full-width Quick Contact Launch Banner */}
-          <div className="grid-span-12">
+          <motion.div 
+            className="grid-span-12"
+            custom={11}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={cardVariants}
+            onMouseMove={handleCardMouseMove}
+            onMouseLeave={handleCardMouseLeave}
+          >
             <ContactCard onOpenContact={() => setIsContactOpen(true)} />
-          </div>
+          </motion.div>
 
         </div>
 

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowRight, Sparkles, Command, Camera, Globe, Palette, 
-  TrendingUp, Box, PenTool, Aperture, Film 
+  TrendingUp, Box, PenTool, Aperture, Film, Zap, ShieldCheck
 } from 'lucide-react';
 import { audioManager } from '../../utils/audioManager';
+import TextScrambler from '../common/TextScrambler';
 import './SplashScreen.css';
 
 // 8 Viewport position classes
@@ -22,10 +23,17 @@ const POS_CLASSES = [
 export default function SplashScreen({ onEnter }) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const [isPortalLaunching, setIsPortalLaunching] = useState(false);
 
   const handlePortalEnter = () => {
+    if (isPortalLaunching) return;
+    setIsPortalLaunching(true);
     audioManager.playPortalEnter();
-    onEnter();
+
+    // Trigger transition burst delay for dramatic effect
+    setTimeout(() => {
+      onEnter();
+    }, 450);
   };
 
   // Position Juggling State
@@ -100,7 +108,7 @@ export default function SplashScreen({ onEnter }) {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onEnter]);
+  }, [onEnter, isPortalLaunching]);
 
   // Magnetic button hover effect
   const handleMouseMove = (e) => {
@@ -128,12 +136,36 @@ export default function SplashScreen({ onEnter }) {
 
   return (
     <motion.div 
-      className="splash-container"
+      className={`splash-container ${isPortalLaunching ? 'portal-launching' : ''}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      exit={{ 
+        opacity: 0, 
+        scale: 1.2, 
+        filter: "blur(30px) brightness(2)",
+      }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
     >
+      {/* Portal Explosion Blast Overlay */}
+      <AnimatePresence>
+        {isPortalLaunching && (
+          <motion.div 
+            className="portal-warp-blast"
+            initial={{ opacity: 0, scale: 0.2 }}
+            animate={{ opacity: 1, scale: 3 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
+          >
+            <div className="warp-core-ring" />
+            <div className="warp-laser-beam" />
+            <div className="warp-status-badge">
+              <Zap size={14} className="spin-slow" />
+              <span>LAUNCHING CORE EXPERIENCE...</span>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Dynamic Background Glow & Grid */}
       <div className="splash-bg-grid" />
       <div className="splash-glow gold-glow" />
@@ -156,7 +188,7 @@ export default function SplashScreen({ onEnter }) {
         <div className="particle p5" />
       </div>
 
-      {/* Floating Glassmorphic Brand Element Cards with Smooth Position Juggling */}
+      {/* Floating Glassmorphic Brand Element Cards */}
       <div className="floating-glass-wrapper">
         {cardsData.map((card, idx) => {
           const Icon = card.icon;
@@ -165,8 +197,9 @@ export default function SplashScreen({ onEnter }) {
             <motion.div 
               key={card.id}
               layout
+              data-cursor="CAPABILITY"
               className={`glass-float-card ${posClass}`}
-              whileHover={{ scale: 1.12, zIndex: 50 }}
+              whileHover={{ scale: 1.15, zIndex: 50, rotate: 2 }}
               transition={{ 
                 layout: { duration: 2.2, ease: [0.16, 1, 0.3, 1] },
                 scale: { duration: 0.25 }
@@ -205,7 +238,9 @@ export default function SplashScreen({ onEnter }) {
         >
           <div className="splash-badge">
             <Sparkles size={13} className="badge-sparkle" />
-            <span>ONE-STOP BRAND CREATION STUDIO</span>
+            <span>
+              <TextScrambler text="ONE-STOP BRAND CREATION STUDIO" scrambleOnMount={true} />
+            </span>
           </div>
 
           <h1 className="splash-heading type-container">
@@ -223,7 +258,7 @@ export default function SplashScreen({ onEnter }) {
           </h1>
         </motion.div>
 
-        {/* Irresistible Magnetic PRESS ENTER Button */}
+        {/* Magnetic PRESS ENTER Button */}
         <motion.div 
           className="splash-cta-container"
           initial={{ scale: 0.9, opacity: 0 }}
@@ -236,6 +271,7 @@ export default function SplashScreen({ onEnter }) {
           <div className={`pulse-ring ring-3 ${isHovered ? 'active' : ''}`} />
 
           <motion.button 
+            data-cursor="ENTER"
             className="press-enter-btn"
             onMouseMove={handleMouseMove}
             onMouseEnter={() => {
@@ -270,3 +306,4 @@ export default function SplashScreen({ onEnter }) {
     </motion.div>
   );
 }
+
