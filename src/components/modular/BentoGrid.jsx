@@ -90,9 +90,9 @@ export default function BentoGrid({ onResetSplash }) {
 
         <div className="bento-grid-layout">
           
-          {/* Row 1: Hero Pitch (7 cols) + Portfolio Showcase (5 cols) */}
+          {/* Row 1: Hero Pitch Anchor (Full Width 12 Columns) */}
           <motion.div 
-            className="grid-span-7"
+            className="grid-span-12"
             custom={1}
             initial="hidden"
             whileInView="visible"
@@ -104,8 +104,9 @@ export default function BentoGrid({ onResetSplash }) {
             <HeroCard onExploreServices={scrollToServices} />
           </motion.div>
 
+          {/* Row 2: Featured Showcase & Interactive Brand Lab (Asymmetric Dual Feature: 7 cols + 5 cols) */}
           <motion.div 
-            className="grid-span-5"
+            className="grid-span-7"
             custom={2}
             initial="hidden"
             whileInView="visible"
@@ -117,10 +118,23 @@ export default function BentoGrid({ onResetSplash }) {
             <PortfolioCard onOpenShowcase={(idx) => setShowcaseIndex(idx)} />
           </motion.div>
 
-          {/* Row 2: Studio Philosophy / About Us (6 cols) + Interactive Brand Lab (6 cols) */}
           <motion.div 
-            className="grid-span-6"
+            className="grid-span-5"
             custom={3}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={cardVariants}
+            onMouseMove={handleCardMouseMove}
+            onMouseLeave={handleCardMouseLeave}
+          >
+            <BrandLabCard />
+          </motion.div>
+
+          {/* Row 3: Studio Story & Capabilities Matrix (4 cols + 8 cols) */}
+          <motion.div 
+            className="grid-span-4"
+            custom={4}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
@@ -132,8 +146,9 @@ export default function BentoGrid({ onResetSplash }) {
           </motion.div>
 
           <motion.div 
-            className="grid-span-6"
-            custom={4}
+            className="grid-span-8" 
+            id="services-section"
+            custom={5}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
@@ -141,13 +156,13 @@ export default function BentoGrid({ onResetSplash }) {
             onMouseMove={handleCardMouseMove}
             onMouseLeave={handleCardMouseLeave}
           >
-            <BrandLabCard />
+            <ServicesCard />
           </motion.div>
 
-          {/* Row 3: Live Metrics (4 cols) + Modular Capabilities (8 cols) */}
+          {/* Row 4: Live Metrics & Client Impact Testimonials (4 cols + 8 cols) */}
           <motion.div 
             className="grid-span-4"
-            custom={5}
+            custom={6}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
@@ -159,9 +174,8 @@ export default function BentoGrid({ onResetSplash }) {
           </motion.div>
 
           <motion.div 
-            className="grid-span-8" 
-            id="services-section"
-            custom={6}
+            className="grid-span-8"
+            custom={7}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
@@ -169,13 +183,13 @@ export default function BentoGrid({ onResetSplash }) {
             onMouseMove={handleCardMouseMove}
             onMouseLeave={handleCardMouseLeave}
           >
-            <ServicesCard />
+            <TestimonialsCard />
           </motion.div>
 
-          {/* Row 4: Workflow Timeline (6 cols) + Package Estimator (6 cols) */}
+          {/* Row 5: Interactive Process & Estimator (6 cols + 6 cols) */}
           <motion.div 
             className="grid-span-6"
-            custom={7}
+            custom={8}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
@@ -188,7 +202,7 @@ export default function BentoGrid({ onResetSplash }) {
 
           <motion.div 
             className="grid-span-6"
-            custom={8}
+            custom={9}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
@@ -199,20 +213,7 @@ export default function BentoGrid({ onResetSplash }) {
             <EstimatorCard onOpenContact={() => setIsContactOpen(true)} />
           </motion.div>
 
-          {/* Row 5: Client Impact Testimonials (7 cols) + FAQ Accordion (5 cols) */}
-          <motion.div 
-            className="grid-span-7"
-            custom={9}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={cardVariants}
-            onMouseMove={handleCardMouseMove}
-            onMouseLeave={handleCardMouseLeave}
-          >
-            <TestimonialsCard />
-          </motion.div>
-
+          {/* Row 6: FAQ & Quick Contact Launch Banner (5 cols + 7 cols) */}
           <motion.div 
             className="grid-span-5"
             custom={10}
@@ -226,9 +227,8 @@ export default function BentoGrid({ onResetSplash }) {
             <FAQCard />
           </motion.div>
 
-          {/* Row 6: Full-width Quick Contact Launch Banner */}
           <motion.div 
-            className="grid-span-12"
+            className="grid-span-7"
             custom={11}
             initial="hidden"
             whileInView="visible"
