@@ -37,17 +37,17 @@
 .bento-main-container {
   position: relative;
   z-index: 1;
-  max-width: 1320px;
+  max-width: 1360px;
   margin: 0 auto;
-  padding: 6.5rem 1.5rem 2rem 1.5rem;
+  padding: 7.5rem 2rem 4rem 2rem;
 }
 
 /* 12-Column Responsive Bento Grid Layout */
 .bento-grid-layout {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 1.25rem;
-  margin-bottom: 3rem;
+  gap: 1.75rem;
+  margin-bottom: 4rem;
 }
 
 .grid-span-12 { grid-column: span 12; }
@@ -69,9 +69,9 @@
   background: rgba(15, 16, 20, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
-  padding: 1.75rem;
+  padding: 2.25rem;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -94,7 +94,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   color: #a1a1aa;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
 }
 
 .gold-text {
@@ -108,13 +108,14 @@
 }
 
 .hero-headline-container {
-  min-height: 90px;
+  min-height: 100px;
+  margin-bottom: 0.5rem;
 }
 
 .hero-headline {
-  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.3;
   letter-spacing: -0.02em;
   color: #ffffff;
 }
@@ -122,22 +123,22 @@
 .hero-desc {
   color: #a1a1aa;
   font-size: 0.95rem;
-  line-height: 1.5;
-  margin: 1rem 0 1.5rem 0;
+  line-height: 1.65;
+  margin: 1.25rem 0 1.75rem 0;
 }
 
 .hero-features-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 1.5rem;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
 }
 
 .feature-pill {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.35rem 0.75rem;
+  padding: 0.4rem 0.85rem;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 9999px;
@@ -153,9 +154,9 @@
   background: linear-gradient(135deg, #fffbcc 0%, #C3922E 100%);
   border: none;
   color: #060608;
-  padding: 0.75rem 1.25rem;
+  padding: 0.85rem 1.5rem;
   border-radius: 9999px;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(195, 146, 46, 0.3);
@@ -171,15 +172,15 @@
 .portfolio-viewer {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
   height: 100%;
 }
 
 .portfolio-img-wrapper {
   position: relative;
   width: 100%;
-  height: 200px;
-  border-radius: 16px;
+  height: 220px;
+  border-radius: 18px;
   overflow: hidden;
 }
 
@@ -202,14 +203,14 @@
 
 .portfolio-tag {
   position: absolute;
-  top: 0.75rem;
-  left: 0.75rem;
-  padding: 0.25rem 0.6rem;
+  top: 0.85rem;
+  left: 0.85rem;
+  padding: 0.3rem 0.75rem;
   background: rgba(6, 6, 8, 0.75);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 9999px;
-  font-size: 0.65rem;
+  font-size: 0.675rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   color: #d8d5bb;
@@ -217,10 +218,10 @@
 
 .portfolio-play-btn {
   position: absolute;
-  bottom: 0.75rem;
-  right: 0.75rem;
-  width: 36px;
-  height: 36px;
+  bottom: 0.85rem;
+  right: 0.85rem;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: #C3922E;
   color: #060608;
@@ -233,18 +234,18 @@
 .portfolio-info {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.35rem;
 }
 
 .project-title {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   color: #ffffff;
 }
 
 .project-cat {
-  font-size: 0.75rem;
+  font-size: 0.775rem;
   color: #8e8e93;
 }
 
@@ -252,7 +253,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
 }
 
 .swipeable-area {
@@ -263,14 +264,14 @@
 
 .swipe-hint-pill {
   position: absolute;
-  bottom: 0.75rem;
-  left: 0.75rem;
-  padding: 0.2rem 0.55rem;
+  bottom: 0.85rem;
+  left: 0.85rem;
+  padding: 0.25rem 0.65rem;
   background: rgba(6, 6, 8, 0.75);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 9999px;
-  font-size: 0.6rem;
+  font-size: 0.625rem;
   font-weight: 600;
   color: #a1a1aa;
   pointer-events: none;
@@ -279,7 +280,7 @@
 
 .project-dots {
   display: flex;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .dot-btn {
@@ -299,34 +300,34 @@
 
 /* ABOUT CARD */
 .about-heading {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.35;
   color: #ffffff;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.85rem;
 }
 
 .about-text {
   color: #a1a1aa;
-  font-size: 0.85rem;
-  line-height: 1.55;
-  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
 }
 
 .about-values-grid {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.85rem;
 }
 
 .about-value-pill {
   display: flex;
   align-items: flex-start;
-  gap: 0.75rem;
-  padding: 0.75rem;
+  gap: 0.85rem;
+  padding: 0.9rem 1.15rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
+  border-radius: 14px;
   transition: border-color 0.2s ease;
 }
 
@@ -338,54 +339,55 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
   background: rgba(195, 146, 46, 0.1);
   flex-shrink: 0;
 }
 
 .value-title {
-  font-size: 0.8rem;
+  font-size: 0.825rem;
   font-weight: 700;
   color: #ffffff;
+  margin-bottom: 0.15rem;
 }
 
 .value-desc {
-  font-size: 0.75rem;
+  font-size: 0.775rem;
   color: #a1a1aa;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 /* BRAND LAB CARD */
 .lab-controls-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .lab-top-controls {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 1.25rem;
   align-items: end;
 }
 
 .lab-input-group {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.45rem;
 }
 
 .lab-brand-input {
   width: 100%;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
-  padding: 0.45rem 0.75rem;
+  border-radius: 12px;
+  padding: 0.55rem 0.85rem;
   color: #ffffff;
-  font-size: 0.8rem;
+  font-size: 0.825rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   outline: none;
@@ -400,24 +402,24 @@
 .lab-view-switcher {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.45rem;
 }
 
 .view-mode-pills {
   display: flex;
-  gap: 0.35rem;
+  gap: 0.45rem;
 }
 
 .view-mode-btn {
   display: flex;
   align-items: center;
-  gap: 0.3rem;
-  padding: 0.4rem 0.65rem;
+  gap: 0.35rem;
+  padding: 0.45rem 0.75rem;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
+  border-radius: 10px;
   color: #a1a1aa;
-  font-size: 0.7rem;
+  font-size: 0.725rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -432,17 +434,17 @@
 .lab-bottom-controls {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .lab-control-group {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.45rem;
 }
 
 .lab-label {
-  font-size: 0.65rem;
+  font-size: 0.675rem;
   font-weight: 800;
   color: #a1a1aa;
   text-transform: uppercase;
@@ -451,12 +453,12 @@
 
 .color-swatches {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .swatch-btn {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   border: 2px solid transparent;
   cursor: pointer;
@@ -470,16 +472,16 @@
 
 .font-pills {
   display: flex;
-  gap: 0.35rem;
+  gap: 0.45rem;
 }
 
 .font-pill-btn {
-  padding: 0.35rem 0.6rem;
+  padding: 0.4rem 0.75rem;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
+  border-radius: 8px;
   color: #a1a1aa;
-  font-size: 0.675rem;
+  font-size: 0.7rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -494,14 +496,14 @@
 .lab-canvas-screen {
   position: relative;
   border: 1px solid;
-  border-radius: 18px;
-  padding: 1.25rem 1.5rem;
+  border-radius: 20px;
+  padding: 1.5rem 1.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1.25rem;
-  min-height: 220px;
+  gap: 1.5rem;
+  min-height: 230px;
   justify-content: space-between;
   transition: all 0.4s ease;
 }
@@ -514,10 +516,10 @@
 }
 
 .archetype-tagline-pill {
-  font-size: 0.6rem;
+  font-size: 0.625rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  padding: 0.2rem 0.6rem;
+  padding: 0.25rem 0.75rem;
   border: 1px solid;
   border-radius: 9999px;
   background: rgba(0, 0, 0, 0.4);
@@ -534,31 +536,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.85rem;
 }
 
 .web-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  padding: 0.2rem 0.6rem;
+  gap: 0.35rem;
+  padding: 0.25rem 0.75rem;
   border: 1px solid;
   border-radius: 9999px;
-  font-size: 0.6rem;
+  font-size: 0.625rem;
   font-weight: 800;
   letter-spacing: 0.08em;
 }
 
 .canvas-brand-name {
-  font-size: 1.85rem;
+  font-size: 1.95rem;
   font-weight: 800;
   letter-spacing: 0.06em;
-  line-height: 1.1;
+  line-height: 1.15;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .canvas-sub-tagline {
-  font-size: 0.65rem;
+  font-size: 0.675rem;
   letter-spacing: 0.12em;
   color: #a1a1aa;
 }
@@ -566,11 +568,11 @@
 .canvas-action-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.6rem 1.25rem;
+  gap: 0.45rem;
+  padding: 0.65rem 1.35rem;
   border: none;
   border-radius: 9999px;
-  font-size: 0.75rem;
+  font-size: 0.775rem;
   font-weight: 800;
   letter-spacing: 0.04em;
   cursor: pointer;
@@ -584,52 +586,53 @@
 /* App View Styles */
 .app-frame {
   width: 100%;
-  max-width: 260px;
+  max-width: 270px;
   border: 1px solid;
-  border-radius: 14px;
-  padding: 0.85rem;
+  border-radius: 16px;
+  padding: 0.95rem;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.75rem;
 }
 
 .app-top-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.75rem;
+  font-size: 0.775rem;
   font-weight: 700;
 }
 
 .app-version {
-  font-size: 0.6rem;
+  font-size: 0.625rem;
   color: #71717a;
 }
 
 .app-card-preview {
   border: 1px solid;
-  border-radius: 10px;
-  padding: 0.6rem;
+  border-radius: 12px;
+  padding: 0.75rem;
   text-align: left;
 }
 
 .app-card-title {
-  font-size: 0.65rem;
+  font-size: 0.675rem;
   font-weight: 600;
 }
 
 .app-card-val {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 800;
+  margin-top: 0.15rem;
 }
 
 .app-action-pill {
   width: 100%;
-  padding: 0.45rem;
+  padding: 0.5rem;
   border: none;
-  border-radius: 8px;
-  font-size: 0.7rem;
+  border-radius: 10px;
+  font-size: 0.725rem;
   font-weight: 800;
   cursor: pointer;
 }
@@ -637,8 +640,8 @@
 /* Badge View Styles */
 .shield-icon-wrapper {
   position: relative;
-  width: 64px;
-  height: 64px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.6);
   border: 1px solid;
@@ -649,19 +652,19 @@
 
 .shield-initials {
   position: absolute;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 900;
   letter-spacing: 0.05em;
 }
 
 .badge-brand-title {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: 0.05em;
 }
 
 .badge-subtitle {
-  font-size: 0.65rem;
+  font-size: 0.675rem;
   font-weight: 700;
   letter-spacing: 0.08em;
 }
@@ -671,36 +674,36 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  gap: 1.25rem;
+  gap: 1.5rem;
   height: 100%;
 }
 
 .metric-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.15rem;
 }
 
 .metric-icon-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
   background: rgba(195, 146, 46, 0.1);
   border: 1px solid rgba(195, 146, 46, 0.25);
 }
 
 .metric-value {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   font-weight: 800;
   color: #ffffff;
   line-height: 1;
 }
 
 .metric-label {
-  font-size: 0.75rem;
+  font-size: 0.775rem;
   color: #a1a1aa;
 }
 
@@ -708,20 +711,20 @@
 .services-nav-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
+  gap: 0.65rem;
+  margin-bottom: 1.75rem;
 }
 
 .service-pill-btn {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.5rem 0.9rem;
+  gap: 0.45rem;
+  padding: 0.55rem 1.05rem;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 9999px;
   color: #a1a1aa;
-  font-size: 0.75rem;
+  font-size: 0.775rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -736,22 +739,22 @@
 .service-details-box {
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  padding: 1.25rem;
-  min-height: 130px;
+  border-radius: 18px;
+  padding: 1.5rem 1.75rem;
+  min-height: 145px;
 }
 
 .service-tagline {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #d8d5bb;
   font-weight: 500;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .service-items-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.6rem;
+  gap: 0.85rem;
 }
 
 @media (max-width: 640px) {
@@ -763,8 +766,8 @@
 .service-item-chip {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 0.75rem;
+  gap: 0.5rem;
+  font-size: 0.775rem;
   color: #d4d4d8;
 }
 
@@ -772,8 +775,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: rgba(34, 197, 94, 0.15);
   color: #22c55e;
@@ -782,16 +785,16 @@
 /* WORKFLOW CARD */
 .workflow-steps-row {
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
 .workflow-step-node {
   flex: 1;
-  padding: 0.75rem;
+  padding: 0.85rem 1rem;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -802,49 +805,49 @@
 }
 
 .step-num-badge {
-  font-size: 0.65rem;
+  font-size: 0.675rem;
   font-weight: 800;
   color: #C3922E;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.25rem;
 }
 
 .step-node-title {
   display: flex;
   align-items: center;
-  gap: 0.3rem;
-  font-size: 0.7rem;
+  gap: 0.35rem;
+  font-size: 0.725rem;
   font-weight: 700;
   color: #ffffff;
 }
 
 .workflow-detail-box {
   background: rgba(0, 0, 0, 0.3);
-  border-radius: 12px;
-  padding: 1rem;
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
 }
 
 .workflow-desc {
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: #a1a1aa;
-  line-height: 1.4;
+  line-height: 1.6;
 }
 
 /* ESTIMATOR CARD */
 .estimator-options-list {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
 }
 
 .estimator-row {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.6rem 0.8rem;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -855,9 +858,9 @@
 }
 
 .custom-checkbox {
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
@@ -872,14 +875,14 @@
 }
 
 .opt-label {
-  font-size: 0.75rem;
+  font-size: 0.775rem;
   font-weight: 500;
   color: #d4d4d8;
   flex: 1;
 }
 
 .opt-price {
-  font-size: 0.75rem;
+  font-size: 0.775rem;
   font-weight: 700;
   color: #ffffff;
 }
@@ -888,27 +891,28 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1.25rem 1.5rem;
   background: linear-gradient(135deg, rgba(195, 146, 46, 0.15) 0%, rgba(12, 13, 16, 0.5) 100%);
   border: 1px solid rgba(195, 146, 46, 0.3);
-  border-radius: 16px;
+  border-radius: 18px;
 }
 
 .estimate-total-label {
-  font-size: 0.65rem;
+  font-size: 0.675rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   color: #d8d5bb;
 }
 
 .estimate-price-tag {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 800;
   color: #ffffff;
+  margin: 0.15rem 0;
 }
 
 .estimate-savings {
-  font-size: 0.7rem;
+  font-size: 0.725rem;
   color: #22c55e;
   font-weight: 600;
 }
@@ -916,13 +920,13 @@
 .estimator-cta-btn {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.5rem 0.9rem;
+  gap: 0.45rem;
+  padding: 0.6rem 1.1rem;
   background: #C3922E;
   color: #060608;
   border: none;
   border-radius: 9999px;
-  font-size: 0.75rem;
+  font-size: 0.775rem;
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -934,14 +938,14 @@
 
 /* TESTIMONIALS CARD */
 .testimonial-body {
-  min-height: 120px;
-  margin-bottom: 1.25rem;
+  min-height: 140px;
+  margin-bottom: 1.5rem;
 }
 
 .stars-row {
   display: flex;
-  gap: 0.2rem;
-  margin-bottom: 0.6rem;
+  gap: 0.25rem;
+  margin-bottom: 0.85rem;
 }
 
 .gold-star {
@@ -949,37 +953,38 @@
 }
 
 .testimonial-quote {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #e4e4e7;
   font-style: italic;
-  line-height: 1.5;
-  margin-bottom: 1rem;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
 }
 
 .testimonial-meta-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .author-name {
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   font-weight: 700;
   color: #ffffff;
 }
 
 .author-role {
-  font-size: 0.75rem;
+  font-size: 0.775rem;
   color: #a1a1aa;
 }
 
 .impact-badge {
-  padding: 0.3rem 0.75rem;
+  padding: 0.35rem 0.85rem;
   background: rgba(34, 197, 94, 0.1);
   border: 1px solid rgba(34, 197, 94, 0.25);
   border-radius: 9999px;
   color: #4ade80;
-  font-size: 0.7rem;
+  font-size: 0.725rem;
   font-weight: 700;
 }
 
@@ -991,7 +996,7 @@
 
 .testimonial-dots {
   display: flex;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .t-dot {
@@ -1010,12 +1015,12 @@
 
 .nav-arrow-btns {
   display: flex;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .t-arrow-btn {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1036,14 +1041,14 @@
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.75rem;
 }
 
 .faq-item {
-  padding: 0.75rem 1rem;
+  padding: 0.9rem 1.25rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -1060,7 +1065,7 @@
 }
 
 .faq-question {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: #ffffff;
 }
@@ -1076,11 +1081,11 @@
 }
 
 .faq-answer {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: #a1a1aa;
-  line-height: 1.45;
-  margin-top: 0.5rem;
-  padding-top: 0.5rem;
+  line-height: 1.6;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -1091,32 +1096,33 @@
   cursor: pointer;
   text-align: center;
   align-items: center;
-  padding: 2.5rem;
+  padding: 3.5rem 2rem;
+  border-radius: 28px;
 }
 
 .contact-cta-heading {
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
 }
 
 .contact-cta-sub {
   color: #a1a1aa;
-  font-size: 0.9rem;
-  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
 }
 
 .contact-cta-action {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.75rem 1.75rem;
+  padding: 0.85rem 2rem;
   background: linear-gradient(135deg, #fffbcc 0%, #C3922E 100%);
   border-radius: 9999px;
   color: #060608;
   font-weight: 800;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   letter-spacing: 0.08em;
   box-shadow: 0 4px 20px rgba(195, 146, 46, 0.4);
 }
@@ -1131,9 +1137,9 @@
 .bento-footer {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-  padding-top: 3.5rem;
-  padding-bottom: 2rem;
+  gap: 3rem;
+  padding-top: 4.5rem;
+  padding-bottom: 2.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -1141,7 +1147,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .footer-brand-group {
@@ -1149,7 +1155,7 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  gap: 0.75rem;
+  gap: 0.85rem;
   max-width: 480px;
 }
 
@@ -1162,25 +1168,25 @@
 }
 
 .footer-tagline {
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: #a1a1aa;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .footer-actions-group {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.85rem;
   flex-wrap: wrap;
 }
 
 .footer-pill-btn {
-  padding: 0.55rem 1.1rem;
+  padding: 0.6rem 1.25rem;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 9999px;
   color: #d4d4d8;
-  font-size: 0.8rem;
+  font-size: 0.825rem;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
@@ -1210,10 +1216,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding-top: 1.5rem;
+  gap: 1.25rem;
+  padding-top: 1.75rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  font-size: 0.775rem;
+  font-size: 0.8rem;
   color: #71717a;
 }
 
@@ -1225,12 +1231,12 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.25rem 0.75rem;
+  padding: 0.3rem 0.85rem;
   background: rgba(34, 197, 94, 0.08);
   border: 1px solid rgba(34, 197, 94, 0.2);
   border-radius: 9999px;
   color: #4ade80;
-  font-size: 0.675rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.06em;
 }
@@ -1239,11 +1245,11 @@
 @media (max-width: 1024px) {
   .bento-grid-layout {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .grid-span-12, .grid-span-8, .grid-span-7, .grid-span-6, .grid-span-5, .grid-span-4 {
-    grid-column: span 1;
+    grid-column: span 12;
   }
 }
 
@@ -1286,7 +1292,7 @@
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    padding: 4.8rem 0.85rem 1.5rem 0.85rem;
+    padding: 5.25rem 1rem 2rem 1rem;
     overflow-x: hidden;
   }
 
@@ -1294,48 +1300,53 @@
     width: 100%;
     box-sizing: border-box;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.25rem;
   }
 
   .bento-card {
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    padding: 1.15rem;
-    border-radius: 18px;
+    padding: 1.4rem;
+    border-radius: 20px;
     overflow: hidden;
   }
 
+  .card-top-tag {
+    margin-bottom: 1.25rem;
+  }
+
   .hero-headline {
-    font-size: clamp(1.3rem, 5.2vw, 1.75rem);
+    font-size: clamp(1.35rem, 5.2vw, 1.8rem);
     word-break: break-word;
   }
 
   .hero-desc {
-    font-size: 0.85rem;
-    margin: 0.75rem 0 1.25rem 0;
+    font-size: 0.875rem;
+    margin: 0.85rem 0 1.35rem 0;
   }
 
   .hero-features-list {
-    gap: 0.4rem;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .feature-pill {
-    font-size: 0.675rem;
-    padding: 0.25rem 0.55rem;
+    font-size: 0.725rem;
+    padding: 0.3rem 0.65rem;
     max-width: 100%;
   }
 
   .hero-card-footer .bento-primary-btn {
     width: 100%;
     justify-content: center;
-    padding: 0.65rem 1rem;
-    font-size: 0.775rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
     box-sizing: border-box;
   }
 
   .portfolio-img-wrapper {
-    height: 170px;
+    height: 185px;
     width: 100%;
   }
 
@@ -1343,7 +1354,7 @@
   .lab-top-controls,
   .lab-bottom-controls {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
+    gap: 0.85rem;
     width: 100%;
   }
 
@@ -1351,20 +1362,20 @@
     width: 100%;
     box-sizing: border-box;
     font-size: 16px; /* Prevents auto-zoom on mobile safari/chrome */
-    padding: 0.5rem 0.75rem;
+    padding: 0.55rem 0.75rem;
   }
 
   .view-mode-pills,
   .font-pills {
     flex-wrap: wrap;
-    gap: 0.35rem;
+    gap: 0.45rem;
     width: 100%;
   }
 
   .view-mode-btn,
   .font-pill-btn {
-    padding: 0.4rem 0.55rem;
-    font-size: 0.675rem;
+    padding: 0.45rem 0.65rem;
+    font-size: 0.725rem;
     flex: 1 1 auto;
     min-width: 0;
     justify-content: center;
@@ -1372,50 +1383,50 @@
   }
 
   .color-swatches {
-    gap: 0.5rem;
+    gap: 0.6rem;
     flex-wrap: wrap;
   }
 
   .swatch-btn {
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
     flex-shrink: 0;
   }
 
   .lab-canvas-screen {
     width: 100%;
     box-sizing: border-box;
-    padding: 1rem 0.75rem;
-    min-height: 200px;
-    gap: 1rem;
-    border-radius: 14px;
+    padding: 1.15rem 0.85rem;
+    min-height: 210px;
+    gap: 1.15rem;
+    border-radius: 16px;
   }
 
   .archetype-tagline-pill {
-    font-size: 0.55rem;
-    padding: 0.15rem 0.45rem;
-    max-width: 80%;
+    font-size: 0.575rem;
+    padding: 0.2rem 0.55rem;
+    max-width: 82%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   .canvas-brand-name {
-    font-size: clamp(1.2rem, 5vw, 1.5rem);
+    font-size: clamp(1.3rem, 5.5vw, 1.6rem);
     letter-spacing: 0.03em;
     word-break: break-word;
   }
 
   .canvas-sub-tagline {
-    font-size: 0.55rem;
+    font-size: 0.575rem;
     letter-spacing: 0.08em;
   }
 
   .canvas-action-btn {
     width: 100%;
     justify-content: center;
-    padding: 0.6rem 0.85rem;
-    font-size: 0.75rem;
+    padding: 0.65rem 1rem;
+    font-size: 0.775rem;
     box-sizing: border-box;
   }
 
@@ -1446,22 +1457,27 @@
   .testimonial-meta-row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.6rem;
+    gap: 0.65rem;
+  }
+
+  .bento-contact-cta {
+    padding: 2.5rem 1.25rem;
+    border-radius: 20px;
   }
 
   .contact-cta-heading {
-    font-size: 1.35rem;
+    font-size: 1.45rem;
   }
 
   .contact-cta-sub {
-    font-size: 0.825rem;
+    font-size: 0.85rem;
   }
 
   .contact-cta-action {
     width: 100%;
     justify-content: center;
-    padding: 0.65rem 1rem;
-    font-size: 0.775rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.8rem;
     box-sizing: border-box;
   }
 }
