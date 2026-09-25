@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import BentoHeader from './BentoHeader';
 import ContactModal from './ContactModal';
 import ShowcaseModal from './ShowcaseModal';
+import ScrollProgress from '../common/ScrollProgress';
+import KineticStatement from './KineticStatement';
 
 import HeroCard from './BentoCards/HeroCard';
 import ServicesCard from './BentoCards/ServicesCard';
@@ -75,6 +77,9 @@ export default function BentoGrid({ onResetSplash }) {
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
     >
+      {/* Scroll Progress Bar & Badge */}
+      <ScrollProgress />
+
       {/* Floating Header */}
       <BentoHeader 
         onOpenContact={() => setIsContactOpen(true)}
@@ -103,6 +108,13 @@ export default function BentoGrid({ onResetSplash }) {
           >
             <HeroCard onExploreServices={scrollToServices} />
           </motion.div>
+
+        </div>
+
+        {/* Full-Screen Scroll Kinetic Statement Section */}
+        <KineticStatement />
+
+        <div className="bento-grid-layout">
 
           {/* Row 2: Featured Showcase & Interactive Brand Lab (Asymmetric Dual Feature: 7 cols + 5 cols) */}
           <motion.div 
