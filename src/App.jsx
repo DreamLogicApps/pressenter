@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import SplashScreen from './components/splash/SplashScreen';
-import BentoGrid from './components/modular/BentoGrid';
+import CinematicExperience from './components/cinematic/CinematicExperience';
 import ParticleCanvas from './components/modular/ParticleCanvas';
 import CustomCursor from './components/common/CustomCursor';
 
@@ -23,8 +23,8 @@ function App() {
             onEnter={() => setHasEntered(true)} 
           />
         ) : (
-          <BentoGrid 
-            key="bento"
+          <CinematicExperience 
+            key="cinematic"
             onResetSplash={() => setHasEntered(false)} 
           />
         )}
