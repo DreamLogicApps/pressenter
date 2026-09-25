@@ -31,7 +31,6 @@ class AudioManager {
       const osc = this.audioCtx.createOscillator();
       const gain = this.audioCtx.createGain();
 
-      // Delicate subtle click sound with slight pitch variance per key tick
       const freq = 1200 + Math.random() * 350;
       osc.type = 'sine';
       osc.frequency.setValueAtTime(freq, this.audioCtx.currentTime);
@@ -71,7 +70,7 @@ class AudioManager {
       osc.start();
       osc.stop(this.audioCtx.currentTime + 0.035);
     } catch (e) {
-      // Ignore audio errors if blocked by browser policy
+      // Ignore audio errors
     }
   }
 
@@ -122,6 +121,33 @@ class AudioManager {
 
       osc.start();
       osc.stop(this.audioCtx.currentTime + 0.36);
+    } catch (e) {
+      // Ignore audio errors
+    }
+  }
+
+  playCinematicBoom() {
+    if (this.isMuted) return;
+    try {
+      this.init();
+      if (!this.audioCtx) return;
+
+      const osc = this.audioCtx.createOscillator();
+      const gain = this.audioCtx.createGain();
+
+      // Deep cinematic sub-bass drop (80Hz down to 25Hz)
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(90, this.audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(25, this.audioCtx.currentTime + 0.6);
+
+      gain.gain.setValueAtTime(0.08, this.audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.audioCtx.currentTime + 0.65);
+
+      osc.connect(gain);
+      gain.connect(this.audioCtx.destination);
+
+      osc.start();
+      osc.stop(this.audioCtx.currentTime + 0.66);
     } catch (e) {
       // Ignore audio errors
     }

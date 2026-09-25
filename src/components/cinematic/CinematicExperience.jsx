@@ -131,7 +131,7 @@ export default function CinematicExperience({ onResetSplash }) {
   };
 
   const scrollToId = (id) => {
-    audioManager.playClick();
+    audioManager.playCinematicBoom();
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
@@ -160,6 +160,19 @@ export default function CinematicExperience({ onResetSplash }) {
         '--active-glow': activePalette.glow,
       }}
     >
+      {/* Subtle Analog Film Grain Overlay */}
+      <div className="cinematic-film-grain" />
+
+      {/* Anamorphic Letterbox HUD Frames */}
+      <div className="letterbox-bar top-letterbox">
+        <div className="letterbox-hud-info">
+          <span>IMAX 2.39:1 // 4K HIGH DYNAMIC RANGE</span>
+          <span className="hud-rec-dot" />
+          <span>REC // PRESSENTER CORE</span>
+        </div>
+      </div>
+      <div className="letterbox-bar bottom-letterbox" />
+
       {/* Laser Scroll Progress HUD Bar */}
       <motion.div 
         className="hud-scroll-bar"
@@ -178,7 +191,7 @@ export default function CinematicExperience({ onResetSplash }) {
           <div 
             className="hud-brand"
             onClick={() => {
-              audioManager.playClick();
+              audioManager.playCinematicBoom();
               onResetSplash();
             }}
             onMouseEnter={() => audioManager.playHover()}
@@ -210,7 +223,7 @@ export default function CinematicExperience({ onResetSplash }) {
             <button 
               className="hud-pill-btn"
               onClick={() => {
-                audioManager.playClick();
+                audioManager.playCinematicBoom();
                 onResetSplash();
               }}
               onMouseEnter={() => audioManager.playHover()}
@@ -222,7 +235,7 @@ export default function CinematicExperience({ onResetSplash }) {
             <button 
               className="hud-gold-btn"
               onClick={() => {
-                audioManager.playClick();
+                audioManager.playCinematicBoom();
                 setIsContactOpen(true);
               }}
               onMouseEnter={() => audioManager.playHover()}
