@@ -143,7 +143,9 @@ export default function ShowcaseModal({ isOpen, onClose, projectIndex, projects,
                 <div className="showcase-stats-row">
                   {currentProject.stats.map((stat, i) => (
                     <div key={i} className="showcase-stat-pill">
-                      <span className="stat-value">{stat}</span>
+                      <span className="stat-value">
+                        {typeof stat === 'object' ? `${stat.value} ${stat.label}` : stat}
+                      </span>
                     </div>
                   ))}
                 </div>

@@ -11,8 +11,13 @@ export const showcaseProjects = [
     category: 'Brand Identity & Web Platform',
     image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
     tag: 'Web & Identity',
+    client: 'AETHER LABS',
     deliverables: ['Visual Identity System', 'Custom React Web Platform', '3D Motion Brand Assets', 'Brand Guidelines'],
-    stats: ['2.4x Conversion Increase', '45ms Load Speed', '$12M TVL Managed'],
+    stats: [
+      { value: '2.4x', label: 'Conversion Increase' },
+      { value: '45ms', label: 'Load Speed' },
+      { value: '$12M', label: 'TVL Managed' }
+    ],
     description: 'Aether Monolith required a futuristic brand identity paired with a high-performance web dashboard that conveys institutional security and cutting-edge intelligence.'
   },
   {
@@ -22,8 +27,13 @@ export const showcaseProjects = [
     category: '3D Motion & Video Production',
     image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80',
     tag: 'Commercial Film',
+    client: 'VELOCITY MOTORS',
     deliverables: ['4K Commercial Shoot', '3D Motion Graphics', 'Spatial Audio Sound Design', 'Social Ad Suites'],
-    stats: ['3.2M+ Organic Views', '85% Completion Rate', '#1 Trending Launch'],
+    stats: [
+      { value: '3.2M+', label: 'Organic Views' },
+      { value: '85%', label: 'Completion Rate' },
+      { value: '#1', label: 'Trending Launch' }
+    ],
     description: 'Velocity Dynamics engaged PressEnter for a high-octane commercial campaign. We executed the complete visual narrative, from storyboard and cinematic lighting to 3D motion graphics.'
   },
   {
@@ -33,9 +43,46 @@ export const showcaseProjects = [
     category: 'Social Content & Rebrand',
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
     tag: 'Full Brand Suite',
+    client: 'AURORA VENTURES',
     deliverables: ['Brand Positioning Strategy', 'Investor Pitch Deck', 'Web Platform', 'Social Content Engine'],
-    stats: ['$4.2M Seed Round Closed', '140% Pipeline Growth', '25-Day Delivery'],
+    stats: [
+      { value: '$4.2M', label: 'Seed Round Closed' },
+      { value: '140%', label: 'Pipeline Growth' },
+      { value: '25 Days', label: 'Delivery Time' }
+    ],
     description: 'Aurora Capital needed to establish immediate market trust for their newly launched venture fund. PressEnter built their end-to-end visual presence, deck design, and web portal.'
+  },
+  {
+    id: 'kinetik',
+    title: 'KINETIK OS',
+    subtitle: 'Spatial Operating System & WebGL Experience',
+    category: 'Brand Systems & Web Apps',
+    image: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80',
+    tag: 'Spatial Web Design',
+    client: 'KINETIK TECH',
+    deliverables: ['Spatial UI Design System', 'Three.js Interactive Showcase', 'Product Design System', 'Launch Strategy'],
+    stats: [
+      { value: '4.9/5', label: 'User Rating' },
+      { value: '60 FPS', label: 'Fluid Animation' },
+      { value: '850K', label: 'Beta Signups' }
+    ],
+    description: 'Kinetik OS brings desktop-class window management to spatial web computing. PressEnter designed their branding, interactive 3D web experience, and product landing interface.'
+  },
+  {
+    id: 'vespera',
+    title: 'VESPERA AUDIO',
+    subtitle: 'Generative AI Acoustic Hardware & App',
+    category: '3D Motion & App Suite',
+    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=80',
+    tag: 'Hardware & App Suite',
+    client: 'VESPERA SOUNDS',
+    deliverables: ['Hardware Packaging Design', 'iOS/Android App UI', '3D Product Renders', 'Global Ad Campaign'],
+    stats: [
+      { value: '+340%', label: 'Pre-Orders' },
+      { value: '12', label: 'Design Awards' },
+      { value: '4.8M', label: 'Social Impressions' }
+    ],
+    description: 'Vespera Sound needed a premium, luxury brand reveal for their flagship noise-cancelling headphones. PressEnter created hyper-realistic 3D renders, video teasers, and app interfaces.'
   }
 ];
 
