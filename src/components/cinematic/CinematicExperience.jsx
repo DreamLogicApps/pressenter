@@ -342,15 +342,7 @@ export const brandTheme = {
       {/* Subtle Analog Film Grain Overlay */}
       <div className="cinematic-film-grain" />
 
-      {/* Anamorphic Letterbox HUD Frames */}
-      <div className="letterbox-bar top-letterbox">
-        <div className="letterbox-hud-info">
-          <span>IMAX 2.39:1 // 4K HIGH DYNAMIC RANGE</span>
-          <span className="hud-rec-dot" />
-          <span>REC // PRESSENTER CORE</span>
-        </div>
-      </div>
-      <div className="letterbox-bar bottom-letterbox" />
+
 
       {/* Laser Scroll Progress HUD Bar */}
       <motion.div 
@@ -1143,7 +1135,6 @@ export const brandTheme = {
                     }}
                   >
                     <div className="faq-title-group">
-                      <span className="faq-cat-badge">{faq.category}</span>
                       <span className="faq-q-text">{faq.q}</span>
                     </div>
                     <motion.span 
