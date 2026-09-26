@@ -2097,6 +2097,24 @@
   }
 
   /* Brand Lab (Scene 4) Mobile Polish */
+  .spatial-lab-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .lab-left-panel,
+  .lab-right-preview {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
   .palette-buttons-row {
     display: flex;
     flex-direction: column;
@@ -2113,9 +2131,12 @@
   }
 
   .preview-canvas-card {
-    width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
     border-radius: 20px !important;
+    box-sizing: border-box !important;
   }
+
 
   .canvas-header {
     padding: 0.75rem 0.85rem;
