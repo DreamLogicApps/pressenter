@@ -658,29 +658,65 @@
 }
 
 /* ==========================================================================
-   SCENE 3: THE HORIZON REEL (HORIZONTAL STICKY SHOWCASE)
+   SCENE 3: THE HORIZON REEL (INTERACTIVE SHOWCASE TRACK)
    ========================================================================== */
-.scene-horizontal-pin {
+.scene-showcase-section {
   position: relative;
-  height: 220vh;
+  padding: 6rem 2rem 5rem 2rem;
+  background: rgba(10, 11, 14, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.sticky-pin-viewport {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  overflow: hidden;
-  padding: 4rem 0;
+.showcase-section-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .horizontal-section-header {
-  max-width: 1360px;
-  margin: 0 auto 2.5rem auto;
-  padding: 0 2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2rem;
   width: 100%;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.showcase-header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.showcase-nav-arrows {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.showcase-arrow-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.showcase-arrow-btn:hover {
+  border-color: var(--active-primary, #C3922E);
+  background: rgba(195, 146, 46, 0.12);
+  color: var(--active-primary, #C3922E);
+  transform: translateY(-1px);
 }
 
 .section-title-sm {
@@ -690,17 +726,62 @@
   letter-spacing: -0.01em;
 }
 
-.horizontal-scroll-track {
+.showcase-scroll-track-wrapper {
   display: flex;
-  gap: 2rem;
-  padding-left: calc((100vw - 1280px) / 2 + 2rem);
-  will-change: transform;
+  gap: 1.75rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0.5rem 0.5rem 1.5rem 0.5rem;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
 }
 
-@media (max-width: 1320px) {
-  .horizontal-scroll-track {
-    padding-left: 2rem;
-  }
+.showcase-scroll-track-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.showcase-bottom-hud {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #71717a;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.showcase-counter-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.showcase-scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.hint-bar-track {
+  width: 140px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.hint-bar-fill {
+  height: 100%;
+  background: var(--active-primary, #C3922E);
+  border-radius: 9999px;
+  transition: width 0.15s ease-out;
 }
 
 .horizon-card {
@@ -1734,18 +1815,8 @@
   }
 
   /* Featured Showcase Section (Scene 3) - Stacked Mobile Grid */
-  .scene-horizontal-pin {
-    height: auto !important;
-    padding: 3rem 1rem !important;
-  }
-
-  .sticky-pin-viewport {
-    position: relative !important;
-    top: auto !important;
-    height: auto !important;
-    padding: 0 !important;
-    overflow: visible !important;
-    justify-content: flex-start !important;
+  .scene-showcase-section {
+    padding: 3.5rem 1rem !important;
   }
 
   .horizontal-section-header {
@@ -1756,12 +1827,21 @@
     padding: 0 !important;
   }
 
+  .showcase-header-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .showcase-nav-arrows {
+    display: none !important;
+  }
+
   .section-title-sm {
     font-size: 1.2rem;
   }
 
   .showcase-filter-tabs {
-    width: 100%;
+    flex: 1;
     overflow-x: auto;
     white-space: nowrap;
     justify-content: flex-start;
@@ -1775,12 +1855,12 @@
     flex-shrink: 0;
   }
 
-  .horizontal-scroll-track {
+  .showcase-scroll-track-wrapper {
     display: flex !important;
     flex-direction: column !important;
     gap: 1.25rem !important;
-    padding-left: 0 !important;
-    transform: none !important;
+    padding: 0 !important;
+    overflow-x: visible !important;
     width: 100% !important;
   }
 
@@ -2029,7 +2109,7 @@
     text-align: center;
   }
 
-  .letterbox-bar, .hud-scroll-counter {
+  .letterbox-bar, .hud-scroll-counter, .showcase-bottom-hud {
     display: none !important;
   }
 

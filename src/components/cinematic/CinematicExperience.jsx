@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, AnimatePresence, useInView } from 'framer-motion';
 import { 
   Sparkles, ArrowRight, ArrowUpRight, Zap, CheckCircle2, ShieldCheck, 
-  Award, RefreshCw, MessageSquare, Volume2, VolumeX, Eye, Play, ChevronRight,
+  Award, RefreshCw, MessageSquare, Volume2, VolumeX, Eye, Play, ChevronRight, ChevronLeft,
   Layers, Cpu, Globe, Palette, Film, Smartphone, Plus, Minus, Menu, X,
   ExternalLink, Mail, MapPin, Phone, Hash, AtSign, Briefcase, Code, Copy, Check, Filter, Clock
 } from 'lucide-react';
@@ -268,14 +268,42 @@ export const brandTheme = {
   const heroTextOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
   const heroBlur = useTransform(scrollYProgress, [0, 0.2], ["blur(0px)", "blur(20px)"]);
   
-  // Scene 2 Horizontal Scroll Pin Transforms
-  const horizontalTrackRef = useRef(null);
-  const { scrollYProgress: horizontalProgress } = useScroll({
-    target: horizontalTrackRef,
-    offset: ["start start", "end end"]
-  });
+  // Showcase Track Scroll & Navigation State
+  const showcaseTrackRef = useRef(null);
+  const [showcaseScrollProgress, setShowcaseScrollProgress] = useState(0);
+  const [activeCardNum, setActiveCardNum] = useState(1);
 
-  const xTransform = useTransform(horizontalProgress, [0, 1], ["0%", "-65%"]);
+  const handleShowcaseScroll = () => {
+    if (!showcaseTrackRef.current) return;
+    const el = showcaseTrackRef.current;
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    if (maxScroll > 0) {
+      const progress = Math.min(1, Math.max(0, el.scrollLeft / maxScroll));
+      setShowcaseScrollProgress(progress);
+
+      const cardWidth = 440;
+      const index = Math.min(filteredProjects.length, Math.max(1, Math.round(el.scrollLeft / cardWidth) + 1));
+      setActiveCardNum(index);
+    }
+  };
+
+  const scrollShowcase = (direction) => {
+    if (!showcaseTrackRef.current) return;
+    audioManager.playClick();
+    const scrollAmount = 440;
+    showcaseTrackRef.current.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth'
+    });
+  };
+
+  useEffect(() => {
+    if (showcaseTrackRef.current) {
+      showcaseTrackRef.current.scrollLeft = 0;
+      setShowcaseScrollProgress(0);
+      setActiveCardNum(1);
+    }
+  }, [activeFilter]);
 
   // Section refs for inView detection
   const kineticRef = useRef(null);
@@ -588,8 +616,11 @@ export const brandTheme = {
       {/* ===================================================================
           SCENE 3: THE HORIZON REEL (HORIZONTAL STICKY PIN SHOWCASE)
           =================================================================== */}
-      <section className="scene-horizontal-pin" id="scene-showcase" ref={horizontalTrackRef}>
-        <div className="sticky-pin-viewport">
+      {/* ===================================================================
+          SCENE 3: THE HORIZON REEL (INTERACTIVE SHOWCASE TRACK)
+          =================================================================== */}
+      <section className="scene-showcase-section" id="scene-showcase">
+        <div className="showcase-section-inner">
           
           <div className="horizontal-section-header">
             <div>
@@ -600,25 +631,53 @@ export const brandTheme = {
               <h3 className="section-title-sm">SELECTED BRAND PRODUCTIONS</h3>
             </div>
 
-            {/* Filter Tabs */}
-            <div className="showcase-filter-tabs">
-              <Filter size={13} className="filter-icon" />
-              {['ALL', 'WEB', 'MOTION', 'BRANDING'].map((f) => (
+            <div className="showcase-header-controls">
+              {/* Filter Tabs */}
+              <div className="showcase-filter-tabs">
+                <Filter size={13} className="filter-icon" />
+                {['ALL', 'WEB', 'MOTION', 'BRANDING'].map((f) => (
+                  <button 
+                    key={f} 
+                    className={`filter-chip ${activeFilter === f ? 'active' : ''}`}
+                    onClick={() => {
+                      audioManager.playClick();
+                      setActiveFilter(f);
+                    }}
+                  >
+                    {f}
+                  </button>
+                ))}
+              </div>
+
+              {/* Navigation Arrow Controls */}
+              <div className="showcase-nav-arrows">
                 <button 
-                  key={f} 
-                  className={`filter-chip ${activeFilter === f ? 'active' : ''}`}
-                  onClick={() => {
-                    audioManager.playClick();
-                    setActiveFilter(f);
-                  }}
+                  className="showcase-arrow-btn" 
+                  onClick={() => scrollShowcase('left')}
+                  aria-label="Previous Showcase Card"
+                  title="Previous Card"
+                  onMouseEnter={() => audioManager.playHover()}
                 >
-                  {f}
+                  <ChevronLeft size={18} />
                 </button>
-              ))}
+                <button 
+                  className="showcase-arrow-btn" 
+                  onClick={() => scrollShowcase('right')}
+                  aria-label="Next Showcase Card"
+                  title="Next Card"
+                  onMouseEnter={() => audioManager.playHover()}
+                >
+                  <ChevronRight size={18} />
+                </button>
+              </div>
             </div>
           </div>
 
-          <motion.div className="horizontal-scroll-track" style={isMobile ? {} : { x: xTransform }}>
+          <div 
+            ref={showcaseTrackRef}
+            className="showcase-scroll-track-wrapper" 
+            onScroll={handleShowcaseScroll}
+          >
             {filteredProjects.map((project, idx) => (
               <div 
                 key={project.id} 
@@ -657,12 +716,24 @@ export const brandTheme = {
                 </div>
               </div>
             ))}
-          </motion.div>
+          </div>
+
+          {/* Bottom Showcase HUD Bar */}
+          <div className="showcase-bottom-hud">
+            <div className="showcase-counter-badge">
+              <span className="gold-text">PROJECT REEL</span>
+              <span>0{activeCardNum} / 0{filteredProjects.length} PRODUCTIONS</span>
+            </div>
+            <div className="showcase-scroll-hint">
+              <span>DRAG OR CLICK ARROWS TO REEL</span>
+              <div className="hint-bar-track">
+                <div className="hint-bar-fill" style={{ width: `${Math.round(showcaseScrollProgress * 100)}%` }} />
+              </div>
+            </div>
+          </div>
 
         </div>
       </section>
-
-      {/* Scene Transition Glow */}
       <div className="scene-transition-glow" />
 
       {/* ===================================================================
