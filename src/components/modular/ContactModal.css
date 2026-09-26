@@ -1,9 +1,14 @@
+/* ==========================================================================
+   PressEnter Project Contact Modal Master Styles
+   ========================================================================== */
+
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(12px);
-  z-index: 9999;
+  background: rgba(6, 6, 8, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 99999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,24 +18,38 @@
 .modal-container {
   position: relative;
   width: 100%;
-  max-width: 520px;
-  max-height: 90vh;
+  max-width: 620px;
+  max-height: 88vh;
   overflow-y: auto;
-  background: linear-gradient(135deg, #121316 0%, #090a0c 100%);
-  border: 1px solid rgba(195, 146, 46, 0.3);
+  background: rgba(12, 13, 17, 0.95);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--active-primary, #C3922E);
   border-radius: 24px;
   padding: 2.25rem 2.5rem;
   box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.9),
-    0 0 40px rgba(195, 146, 46, 0.2);
+    0 30px 60px rgba(0, 0, 0, 0.9),
+    0 0 40px var(--active-glow, rgba(195, 146, 46, 0.25));
+  color: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-/* Custom Scrollbar for modal container */
+.modal-glow-ambient {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
+  height: 250px;
+  background: radial-gradient(circle, var(--active-glow, rgba(195, 146, 46, 0.2)) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Scrollbar */
 .modal-container::-webkit-scrollbar {
   width: 5px;
 }
 .modal-container::-webkit-scrollbar-thumb {
-  background: rgba(195, 146, 46, 0.3);
+  background: var(--active-primary, #C3922E);
   border-radius: 999px;
 }
 
@@ -42,102 +61,158 @@
   height: 36px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: #a1a1aa;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
   z-index: 10;
 }
 
 .modal-close-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--active-primary, #C3922E);
+  color: var(--active-primary, #C3922E);
+  transform: rotate(90deg);
 }
 
-.modal-header h2 {
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: #ffffff;
-  margin: 0.75rem 0 0.4rem 0;
-}
-
-.modal-header p {
-  color: #a1a1aa;
-  font-size: 0.9rem;
+.modal-header {
   margin-bottom: 1.75rem;
+}
+
+.modal-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  margin: 0.65rem 0 0.4rem 0;
+}
+
+.modal-subtitle {
+  color: #a1a1aa;
+  font-size: 0.875rem;
+  line-height: 1.55;
 }
 
 .modal-form {
   display: flex;
   flex-direction: column;
+  gap: 1.15rem;
+}
+
+.form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1.25rem;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .form-group label {
-  font-size: 0.75rem;
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.725rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   color: #d4d4d8;
+}
+
+.form-label-icon {
+  color: var(--active-primary, #C3922E);
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 0.75rem 0.9rem;
+  padding: 0.75rem 0.95rem;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  border-radius: 12px;
   color: #ffffff;
   font-family: inherit;
-  font-size: 16px; /* 16px prevents mobile browser auto-zoom */
+  font-size: 16px; /* Prevents mobile Safari auto-zoom */
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .form-group select option {
-  background: #121316;
+  background: #090a0c;
   color: #ffffff;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: #C3922E;
-  box-shadow: 0 0 10px rgba(195, 146, 46, 0.2);
+  border-color: var(--active-primary, #C3922E);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 15px var(--active-glow, rgba(195, 146, 46, 0.25));
+}
+
+.budget-chips-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.budget-chip {
+  padding: 0.5rem 0.35rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #a1a1aa;
+  font-size: 0.725rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.budget-chip.active {
+  background: var(--active-primary, #C3922E);
+  border-color: var(--active-primary, #C3922E);
+  color: #060608;
+  box-shadow: 0 4px 15px var(--active-glow, rgba(195, 146, 46, 0.4));
+}
+
+.budget-chip:hover:not(.active) {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
 }
 
 .modal-submit-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
+  gap: 0.65rem;
   margin-top: 0.5rem;
-  padding: 0.9rem;
-  background: linear-gradient(135deg, #fffbcc 0%, #C3922E 100%);
+  padding: 0.95rem;
+  background: linear-gradient(135deg, #fffbcc 0%, var(--active-primary, #C3922E) 100%);
   border: none;
-  border-radius: 12px;
+  border-radius: 9999px;
   color: #060608;
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(195, 146, 46, 0.35);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 25px var(--active-glow, rgba(195, 146, 46, 0.4));
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .modal-submit-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(195, 146, 46, 0.5);
+  box-shadow: 0 12px 35px var(--active-glow, rgba(195, 146, 46, 0.6));
 }
 
 .modal-success-state {
@@ -145,11 +220,11 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 2rem 0;
+  padding: 2.5rem 1rem;
 }
 
 .success-icon {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   animation: popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -159,13 +234,32 @@
 }
 
 .modal-success-state h2 {
-  font-size: 1.8rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.85rem;
   color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
 .modal-success-state p {
   color: #a1a1aa;
+  font-size: 0.9rem;
+  max-width: 360px;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.success-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #fffbcc;
 }
 
 /* Mobile Responsive Adjustments */
@@ -177,7 +271,17 @@
   .modal-container {
     padding: 1.5rem 1.25rem;
     border-radius: 20px;
-    max-height: 88vh;
+    max-height: 85vh;
+  }
+
+  .form-row-2col {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .budget-chips-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.4rem;
   }
 
   .modal-close-btn {
@@ -187,13 +291,12 @@
     height: 32px;
   }
 
-  .modal-header h2 {
+  .modal-title {
     font-size: 1.35rem;
   }
 
-  .modal-header p {
-    font-size: 0.825rem;
-    margin-bottom: 1.25rem;
+  .modal-subtitle {
+    font-size: 0.8rem;
   }
 
   .modal-form {
@@ -201,18 +304,23 @@
   }
 
   .form-group label {
-    font-size: 0.7rem;
+    font-size: 0.675rem;
   }
 
   .form-group input,
   .form-group select,
   .form-group textarea {
-    padding: 0.65rem 0.8rem;
+    padding: 0.65rem 0.85rem;
     font-size: 16px;
   }
 
+  .budget-chip {
+    padding: 0.45rem 0.25rem;
+    font-size: 0.675rem;
+  }
+
   .modal-submit-btn {
-    padding: 0.8rem;
-    font-size: 0.9rem;
+    padding: 0.85rem;
+    font-size: 0.85rem;
   }
 }
