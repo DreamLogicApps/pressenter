@@ -1807,40 +1807,81 @@
     margin-top: 2rem !important;
   }
 
-  /* Scene Spacing */
-  .scene-kinetic-pin,
-  .scene-estimator-section,
-  .scene-faq-section,
-  .scene-spatial-lab {
-    padding: 3.5rem 1rem !important;
+  /* Section Badges & Header Uniformity */
+  .scene-tag {
+    font-size: 0.65rem !important;
+    padding: 0.35rem 0.85rem !important;
+    margin-bottom: 1.15rem !important;
+    white-space: nowrap;
+    max-width: 100%;
   }
 
-  /* Manifesto */
-  .kinetic-big-text {
-    font-size: clamp(1.25rem, 5vw, 1.85rem);
-    line-height: 1.3;
-    margin-bottom: 2rem;
+  /* Section Titles Uniformity */
+  .kinetic-big-text,
+  .lab-heading,
+  .section-big-title,
+  .launchpad-title {
+    font-size: clamp(1.35rem, 5.5vw, 1.85rem) !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 1.5rem !important;
   }
 
+  .section-title-sm {
+    font-size: 1.25rem !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Body Paragraph Uniformity */
+  .hero-subline,
+  .manifesto-card p,
+  .horizon-desc,
+  .lab-desc,
+  .launchpad-desc,
+  .faq-answer p {
+    font-size: 0.825rem !important;
+    line-height: 1.55 !important;
+    color: #a1a1aa !important;
+  }
+
+  /* Card Containers Uniformity */
+  .manifesto-card,
+  .horizon-card,
+  .preview-canvas-card,
+  .estimator-summary-card,
+  .testimonials-box,
+  .faq-accordion-box {
+    padding: 1.25rem !important;
+    border-radius: 18px !important;
+    background: rgba(15, 16, 20, 0.75) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  /* Primary Button Uniformity */
+  .hero-main-cta,
+  .canvas-cta-btn,
+  .estimator-submit-btn,
+  .launchpad-cta-btn {
+    padding: 0.85rem 1.5rem !important;
+    font-size: 0.85rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.1em !important;
+    border-radius: 9999px !important;
+  }
+
+  /* Manifesto Grid */
   .manifesto-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
 
-  .manifesto-card {
-    padding: 1.1rem;
-  }
-
   .manifesto-card h4 {
     font-size: 0.95rem;
+    margin-bottom: 0.4rem;
   }
 
-  .manifesto-card p {
-    font-size: 0.8rem;
-    line-height: 1.5;
-  }
-
-  /* Featured Showcase Section (Scene 3) - Stacked Mobile Grid */
+  /* Featured Showcase Section (Scene 3) */
   .scene-showcase-section {
     padding: 3.5rem 1rem !important;
   }
@@ -1860,10 +1901,6 @@
 
   .showcase-nav-arrows {
     display: none !important;
-  }
-
-  .section-title-sm {
-    font-size: 1.2rem;
   }
 
   .showcase-filter-tabs {
@@ -1895,8 +1932,6 @@
     max-width: 100% !important;
     width: 100% !important;
     margin: 0 !important;
-    padding: 1.1rem;
-    border-radius: 18px;
   }
 
   .horizon-img-box {
@@ -1908,13 +1943,8 @@
     font-size: 1.1rem;
   }
 
-  .horizon-desc {
-    font-size: 0.775rem;
-    line-height: 1.5;
-  }
-
   .horizon-stats-row {
-    gap: 0.5rem;
+    gap: 0.75rem;
   }
 
   .stat-val {
@@ -1925,20 +1955,10 @@
     font-size: 0.55rem;
   }
 
-  /* Brand Lab */
+  /* Brand Lab (Scene 4) */
   .spatial-lab-container {
     grid-template-columns: 1fr;
     gap: 2rem;
-  }
-
-  .lab-heading {
-    font-size: clamp(1.3rem, 5vw, 1.85rem);
-    line-height: 1.25;
-  }
-
-  .lab-desc {
-    font-size: 0.825rem;
-    line-height: 1.5;
   }
 
   .palette-buttons-row {
@@ -1949,12 +1969,9 @@
   .palette-btn {
     flex: 1 1 calc(50% - 0.5rem);
     min-width: 120px;
-    padding: 0.5rem 0.75rem;
+    padding: 0.55rem 0.75rem;
     font-size: 0.7rem;
-  }
-
-  .preview-canvas-card {
-    padding: 1.1rem;
+    border-radius: 12px;
   }
 
   .canvas-header {
@@ -1993,12 +2010,7 @@
     font-size: 0.55rem;
   }
 
-  /* Pricing Configurator */
-  .section-big-title {
-    font-size: clamp(1.3rem, 5.5vw, 1.85rem);
-    line-height: 1.25;
-  }
-
+  /* Pricing Configurator (Scene 5) */
   .speed-selector-row {
     flex-direction: column;
     align-items: stretch;
@@ -2050,10 +2062,6 @@
     font-size: 0.8rem;
   }
 
-  .estimator-summary-card {
-    padding: 1.25rem;
-  }
-
   .price-num {
     font-size: 2.1rem;
   }
@@ -2066,67 +2074,31 @@
     font-size: 0.95rem;
   }
 
-  .estimator-submit-btn {
-    padding: 0.85rem;
-    font-size: 0.85rem;
-  }
-
-  /* Testimonials & FAQ */
+  /* Testimonials & FAQ (Scene 6) */
   .faq-container {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
-  .testimonials-box, .faq-accordion-box {
-    padding: 1.25rem;
-  }
-
   .testimonial-quote {
     font-size: 0.925rem;
-    line-height: 1.5;
+    line-height: 1.55;
+    margin: 1rem 0 1.25rem 0;
+    min-height: auto;
   }
 
   .faq-question {
-    font-size: 0.825rem;
-    padding: 0.85rem 0;
+    padding: 0.75rem 0;
   }
 
-  .faq-title-group {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.35rem;
-  }
-
-  .faq-cat-badge {
-    font-size: 0.55rem;
-  }
-
-  .faq-answer p {
-    font-size: 0.775rem;
-    line-height: 1.5;
-  }
-
-  /* Launchpad & Footer */
-  .launchpad-title {
-    font-size: clamp(1.4rem, 5.5vw, 2.1rem);
-    line-height: 1.25;
-  }
-
-  .launchpad-desc {
-    font-size: 0.825rem;
-    line-height: 1.5;
-  }
-
-  .launchpad-cta-btn {
-    width: 100%;
-    justify-content: center;
-    padding: 0.9rem 1.5rem;
-    font-size: 0.85rem;
-  }
-
+  /* Launchpad & Footer (Scene 7) */
   .footer-inner {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .footer-logo {
+    height: 24px;
   }
 
   .footer-bottom {
