@@ -232,8 +232,19 @@ export default function CinematicExperience({ onResetSplash }) {
   const scrollToId = (id) => {
     audioManager.playCinematicBoom();
     setMobileMenuOpen(false);
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        const headerOffset = 80;
+        const elementPosition = el.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 60);
   };
 
   const copySpecCode = () => {
@@ -478,9 +489,7 @@ export const brandTheme = {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Sparkles size={14} className="gold-text" />
-            <span>
-              <TextScrambler text="ONE-STOP BRAND CREATION STUDIO" scrambleOnMount={true} />
-            </span>
+            <span>ONE-STOP BRAND CREATION STUDIO</span>
           </motion.div>
 
           <motion.h1 
