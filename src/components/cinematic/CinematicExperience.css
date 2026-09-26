@@ -1719,50 +1719,92 @@
     border-radius: 16px;
   }
 
-  /* Hero Scene */
+  /* Hero Scene Mobile Overhaul */
   .scene-hero {
-    padding: 5.5rem 1rem 2.5rem 1rem;
+    padding: 6rem 1.25rem 3rem 1.25rem;
     min-height: auto;
   }
 
+  .hero-top-badge {
+    font-size: 0.65rem;
+    padding: 0.35rem 0.85rem;
+    white-space: nowrap;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
   .hero-monolith-title {
-    font-size: clamp(1.4rem, 6vw, 2.1rem);
-    line-height: 1.25;
-    margin-bottom: 0.85rem;
+    font-size: clamp(1.5rem, 6.5vw, 2.2rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
   }
 
   .hero-subline {
     font-size: 0.825rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-    max-width: 100%;
+    line-height: 1.55;
+    margin-bottom: 1.75rem;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-action-row {
-    gap: 1rem;
+    gap: 1.25rem;
     flex-direction: column;
+    align-items: center;
     width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
   }
 
   .hero-main-cta {
     width: 100%;
     justify-content: center;
-    padding: 0.9rem 1.5rem;
+    padding: 0.85rem 1.5rem;
     font-size: 0.85rem;
+    border-radius: 9999px;
   }
 
   .hero-live-metrics-pill {
     width: 100%;
+    border-radius: 16px;
+    padding: 0.85rem 1rem;
+    display: flex;
+    align-items: center;
     justify-content: space-around;
-    padding: 0.65rem 1rem;
+    background: rgba(15, 16, 20, 0.75);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  .metric-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .metric-num {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .metric-txt {
     font-size: 0.55rem;
+    letter-spacing: 0.08em;
+  }
+
+  .metric-divider {
+    width: 1px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .scroll-cue-wrapper {
+    position: relative !important;
+    bottom: auto !important;
+    margin-top: 2rem !important;
   }
 
   /* Scene Spacing */
