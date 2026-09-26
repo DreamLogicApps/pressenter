@@ -1144,7 +1144,7 @@ export const brandTheme = {
                   >
                     <div className="faq-title-group">
                       <span className="faq-cat-badge">{faq.category}</span>
-                      <span>{faq.q}</span>
+                      <span className="faq-q-text">{faq.q}</span>
                     </div>
                     <motion.span 
                       className="faq-icon"
